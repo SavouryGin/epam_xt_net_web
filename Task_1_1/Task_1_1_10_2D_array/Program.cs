@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task_1_1_10
+namespace Task_1_1_10_2D_array
 {
     class Program
     {

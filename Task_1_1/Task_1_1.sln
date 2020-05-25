@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_1_1_8_No_positive", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_1_1_9_Non-negative_sum", "Task_1_1_9_Non-negative_sum\Task_1_1_9_Non-negative_sum.csproj", "{4A164F07-ED14-43FA-A731-C4610CC570D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_1_1_10_2D_array", "Task_1_1_10\Task_1_1_10_2D_array.csproj", "{40BFA1B1-612D-4F1B-981B-81825A9E3D45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_1_1_10_2D_array", "Task_1_1_10_2D_array\Task_1_1_10_2D_array.csproj", "{40BFA1B1-612D-4F1B-981B-81825A9E3D45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
