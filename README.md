@@ -18,3 +18,11 @@
 * 1.2.2. Doubler
 * 1.2.3. Lowercase
 * 1.2.4. Validator
+
+## Task 2.1. OOP
+* 2.1.1. Custom String
+* 2.1.2. Custom Paint
+
+## Task 2.2. Game Development
+* 2.2.1. Game
+
