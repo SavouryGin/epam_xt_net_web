@@ -39,15 +39,9 @@ namespace Task_2_1_1_Custom_String_Library
         public int Length => charArray.Length;
 
         // Conversion methods
-        public override string ToString()
-        {
-            return string.Join("", charArray);
-        }
+        public override string ToString() => string.Join("", charArray);
 
-        public char[] ToArray()
-        {
-            return charArray;
-        }
+        public char[] ToArray => charArray;
 
         public StringBuilder ToStringBuilder()
         {
@@ -161,7 +155,7 @@ namespace Task_2_1_1_Custom_String_Library
             return res;
         }
 
-        // Multiplication method
+        // Custom multiplication method
         public static MyString operator *(MyString input, int num)
         {
             StringBuilder temp = new StringBuilder(input.ToString());
@@ -173,7 +167,7 @@ namespace Task_2_1_1_Custom_String_Library
             return new MyString(res);
         }
 
-        // Slice method
+        // Custom slice method
         public MyString Slice(int i, int j)
         {
             if (i > j || i < 0 || j < 0)

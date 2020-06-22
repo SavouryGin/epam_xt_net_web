@@ -6,12 +6,13 @@ namespace Task_2_2_Game
 {
     /* Classic car game. The player needs to drive his car (&) to overtake other racers (@).
      * Crushes reduce the number of lives.
-     * Asterisks (*) give extra life.
-     * Hyphens (-) slow down.
+     * Asterisk (*) gives extra life.
+     * Hyphen (-) slow down.
      * If the number of lives drops to zero, the game ends.
      */
     class Program
     {
+        // The structure Object models the atomic entities of the game
         struct Object
         {
             public int x;
@@ -20,6 +21,7 @@ namespace Task_2_2_Game
             public ConsoleColor color;
         }
 
+        // Display objects
         private static void PrintOnPosition(int x, int y,
             char c, ConsoleColor color = ConsoleColor.Gray)
         {
@@ -28,6 +30,7 @@ namespace Task_2_2_Game
             Console.Write(c);
         }
 
+        // Display messages
         private static void PrintStringOnPosition(int x, int y,
             string str, ConsoleColor color = ConsoleColor.Gray)
         {
@@ -36,6 +39,7 @@ namespace Task_2_2_Game
             Console.Write(str);
         }
 
+        // Start game
         static void Main()
         {
             double speed = 100.0;
@@ -46,6 +50,7 @@ namespace Task_2_2_Game
             Console.BufferHeight = Console.WindowHeight = 20;
             Console.BufferWidth = Console.WindowWidth = 30;
 
+            // Initialize user car
             Object userCar = new Object
             {
                 x = 2,
@@ -58,54 +63,57 @@ namespace Task_2_2_Game
 
             List<Object> objects = new List<Object>();
 
+            // Start movement
             while (true)
             {
+                // Speed is constantly growing
                 speed += acceleration;
 
+                // Set max speed
                 if (speed > 400)
                 {
                     speed = 400;
                 }
 
-                bool hitted = false;
+                // Generate track
                 {
                     int chance = randomGenerator.Next(0, 100);
                     if (chance < 10)
                     {
-                        Object newObject = new Object
+                        // Extra life gem
+                        objects.Add(new Object
                         {
                             color = ConsoleColor.Cyan,
                             c = '*',
                             x = randomGenerator.Next(0, playfieldWidth),
                             y = 0
-                        };
-                        objects.Add(newObject);
+                        });
                     }
                     else if (chance < 20)
                     {
-                        Object newObject = new Object
+                        // Obstacle
+                        objects.Add(new Object
                         {
                             color = ConsoleColor.DarkGreen,
                             c = '-',
                             x = randomGenerator.Next(0, playfieldWidth),
                             y = 0
-                        };
-                        objects.Add(newObject);
+                        });
                     }
                     else
                     {
-                        Object newCar = new Object
+                        // Enemy car
+                        objects.Add(new Object
                         {
                             color = ConsoleColor.DarkRed,
                             x = randomGenerator.Next(0, playfieldWidth),
                             y = 0,
                             c = '@'
-                        };
-
-                        objects.Add(newCar);
+                        });
                     }
                 }
 
+                // Keyboard control
                 while (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo pressedKey = Console.ReadKey(true);
@@ -126,8 +134,13 @@ namespace Task_2_2_Game
                     }
                 }
 
+                // Initialize new list of objects
                 List<Object> newList = new List<Object>();
+                
+                // Did the car crash?               
+                bool hitted = false;
 
+                // Check if objects are in contact
                 for (int i = 0; i < objects.Count; i++)
                 {
                     Object oldCar = objects[i];
@@ -138,20 +151,23 @@ namespace Task_2_2_Game
                     newObject.c = oldCar.c;
                     newObject.color = oldCar.color;
 
+                    // Meet obstacle
                     if (newObject.c == '-' && newObject.y == userCar.y && newObject.x == userCar.x)
                     {
                         speed -= 20;
                     }
-
+                    
+                    // Meet life gem
                     if (newObject.c == '*' && newObject.y == userCar.y && newObject.x == userCar.x)
                     {
                         livesCount++;
                     }
 
+                    // Meet other car
                     if (newObject.c == '@' && newObject.y == userCar.y && newObject.x == userCar.x)
                     {
-                        livesCount--;
                         hitted = true;
+                        livesCount--;
                         speed += 50;
 
                         if (speed > 400)
@@ -159,6 +175,7 @@ namespace Task_2_2_Game
                             speed = 400;
                         }
 
+                        // Quit the game
                         if (livesCount <= 0)
                         {
                             PrintStringOnPosition(8, 10, "GAME OVER!!!", ConsoleColor.Red);
@@ -168,15 +185,18 @@ namespace Task_2_2_Game
                         }
                     }
 
+                    // Add objects to a new row
                     if (newObject.y < Console.WindowHeight)
                     {
                         newList.Add(newObject);
                     }
                 }
-
+                
+                // Update list of objects
                 objects = newList;
                 Console.Clear();
 
+                // If a collision occurs, the user car stops
                 if (hitted)
                 {
                     objects.Clear();
@@ -197,6 +217,7 @@ namespace Task_2_2_Game
                 PrintStringOnPosition(8, 5, "Speed: " + speed, ConsoleColor.White);
                 PrintStringOnPosition(8, 6, "Acceleration: " + acceleration, ConsoleColor.White);
 
+                // Pause current thread
                 Thread.Sleep((int)(600 - speed));
             }
         }

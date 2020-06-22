@@ -14,17 +14,11 @@
             shape = arr[arr.Length - 1];
         }
 
-        public string GetShape()
-        {
-            return shape;
-        }
-
-        public string GetId()
-        {
-            return id;
-        }
-
         // Methods
+        public string GetShape() => shape;
+
+        public string GetId() => id;
+        
         public abstract double GetArea();
 
         public abstract double GetLength();
