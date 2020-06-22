@@ -42,11 +42,13 @@ namespace Task_2_2_Game
         // Start game
         static void Main()
         {
+            // Starting position
             double speed = 100.0;
             double acceleration = 0.5;
             int playfieldWidth = 5;
             int livesCount = 5;
 
+            // Set console window size
             Console.BufferHeight = Console.WindowHeight = 20;
             Console.BufferWidth = Console.WindowWidth = 30;
 
