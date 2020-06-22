@@ -4,8 +4,10 @@ namespace Task_2_1_2_Custom_Paint
 {
     internal class Ring : Circle
     {
+        // Fields
         protected double innerRadius;
 
+        // Constructor
         public Ring(string n, int x, int y, int z, double r, double ir) : base(n, x, y, z, r)
         {
             if (ir < 0)
@@ -18,13 +20,14 @@ namespace Task_2_1_2_Custom_Paint
             }
         }
 
-        public double LenCircles => 2 * Math.PI * radius + 2 * Math.PI * innerRadius;
+        // Properties
+        private double Length => 2 * Math.PI * radius + 2 * Math.PI * innerRadius;
 
-        public override double GetArea()
-        {
-            double outerArea = Math.PI * radius * radius;
-            double innerArea = Math.PI * innerRadius * innerRadius;
-            return outerArea - innerArea;
-        }
+        private double Area => Math.PI * radius * radius - Math.PI * innerRadius * innerRadius;
+
+        // Methods
+        public override double GetArea() => Area;
+
+        public override double GetLength() => Length;
     }
 }

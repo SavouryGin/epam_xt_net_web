@@ -4,13 +4,15 @@ namespace Task_2_1_2_Custom_Paint
 {
     internal class Square : Polygon
     {
+        // Fields
         protected double len1;
 
+        // Constructor
         public Square(string n, double a) : base(n)
         {
             if (a <= 0)
             {
-                throw new Exception("The length of one of the sides is less than or equal to zero!");
+                throw new Exception("The length of one side is less than or equal to zero!");
             } 
             else
             {
@@ -18,12 +20,15 @@ namespace Task_2_1_2_Custom_Paint
             }            
         }
 
-        public double Perimeter => len1 * 4;
+        // Properties
+        private double Perimeter => len1 * 4;
 
-        public override double GetArea()
-        {
-            return len1 * len1;
-        }
+        private double Area => len1 * len1;
+
+        // Methods
+        public override double GetArea() => Area;
+
+        public override double GetLength() => Perimeter;
 
     }
 }

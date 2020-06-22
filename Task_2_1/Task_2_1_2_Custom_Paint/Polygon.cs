@@ -2,9 +2,11 @@
 {
     abstract class Polygon
     {
+        // Fields
         public string shape;
         public string id;
 
+        // Constructor
         public Polygon(string polygonName)
         {
             id = polygonName;
@@ -20,8 +22,11 @@
         public string GetId()
         {
             return id;
-        }        
+        }
 
+        // Methods
         public abstract double GetArea();
+
+        public abstract double GetLength();
     }
 }

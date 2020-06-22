@@ -18,7 +18,7 @@ namespace Task_2_1_2_Custom_Paint
 
             do
             {
-                Console.WriteLine("------------------------------");
+                Console.WriteLine("#########################################################");
                 Console.WriteLine("What to do: " +
                     "\n \t 1: Add new polygon " +
                     "\n \t 2: Print polygons " +
@@ -65,10 +65,10 @@ namespace Task_2_1_2_Custom_Paint
 
                         foreach (Polygon p in userList)
                         {
-                            Console.WriteLine("~ ~ ~ ~ ~ ~ ~ ~");
-                            string inst = p.GetShape();
-                            Console.WriteLine(inst + ": " + p.GetId());
-                            Console.WriteLine("Area: {0:f2}", p.GetArea());
+                            Console.WriteLine("\t-----------------------------");
+                            Console.WriteLine("\t" + p.GetShape() + ": " + p.GetId());
+                            Console.WriteLine("\tArea: {0:f2}", p.GetArea());
+                            Console.WriteLine("\tLength: {0:f2}", p.GetLength());
                         }
 
                         break;
@@ -136,7 +136,7 @@ namespace Task_2_1_2_Custom_Paint
                 Console.WriteLine("Error! The value you entered is incorrect. Try again!");
                 return isDone;
             }
-            Console.Write("Enter radius (coma separated number): ");
+            Console.Write("Enter radius (format #,##): ");
             string rInput = Console.ReadLine();
             try
             {
@@ -211,7 +211,7 @@ namespace Task_2_1_2_Custom_Paint
                 return isDone;
             }
 
-            Console.Write("Enter radius (coma separated number): ");
+            Console.Write("Enter radius (format #,##): ");
             string rInput = Console.ReadLine();
 
             try
@@ -224,7 +224,7 @@ namespace Task_2_1_2_Custom_Paint
                 return isDone;
             }
 
-            Console.Write("Enter inner radius (coma separated number): ");
+            Console.Write("Enter inner radius (format #,##): ");
             string rInnerInput = Console.ReadLine();
 
             try
@@ -261,7 +261,7 @@ namespace Task_2_1_2_Custom_Paint
             Console.Write("Enter id: ");
             string id = Console.ReadLine();
             
-            Console.Write("Enter the length of side A (coma separated number): ");
+            Console.Write("Enter the length of side A (format #,##): ");
             string aInput = Console.ReadLine();
             try
             {
@@ -273,7 +273,7 @@ namespace Task_2_1_2_Custom_Paint
                 return isDone;
             }
 
-            Console.Write("Enter the length of side B: ");
+            Console.Write("Enter the length of side B (format #,##): ");
             string bInput = Console.ReadLine();
             try
             {
@@ -285,7 +285,7 @@ namespace Task_2_1_2_Custom_Paint
                 return isDone;
             }
 
-            Console.Write("Enter the length of side C: ");
+            Console.Write("Enter the length of side C (format #,##): ");
             string cInput = Console.ReadLine();
             try
             {
@@ -297,10 +297,15 @@ namespace Task_2_1_2_Custom_Paint
                 return isDone;
             }
 
-            if (a <= 0 || b <= 0 || c <= 0 ||
-                (a + b > c && a + c > b && b + c > a))
+            if (a <= 0 || b <= 0 || c <= 0)
             {
                 Console.WriteLine("Error! The value you entered is incorrect. Try again!");
+                return isDone;
+            }
+
+            if (!(a + b > c && a + c > b && b + c > a))
+            {
+                Console.WriteLine("A triangle with such sides does not exist! Try again!");
                 return isDone;
             }
 
@@ -319,7 +324,7 @@ namespace Task_2_1_2_Custom_Paint
             Console.Write("Enter id: ");
             string id = Console.ReadLine();
 
-            Console.Write("Enter the length of the side of the square (coma separated number): ");
+            Console.Write("Enter the length of the side (format #,##): ");
             string aInput = Console.ReadLine();
             try
             {
@@ -353,7 +358,7 @@ namespace Task_2_1_2_Custom_Paint
             Console.Write("Enter id: ");
             string id = Console.ReadLine();
 
-            Console.Write("Enter the length of side A (coma separated number): ");
+            Console.Write("Enter the length of side A (format #,##): ");
             string aInput = Console.ReadLine();
             try
             {
@@ -365,7 +370,7 @@ namespace Task_2_1_2_Custom_Paint
                 return isDone;
             }
 
-            Console.Write("Enter the length of side B: ");
+            Console.Write("Enter the length of side B (format #,##): ");
             string bInput = Console.ReadLine();
             try
             {

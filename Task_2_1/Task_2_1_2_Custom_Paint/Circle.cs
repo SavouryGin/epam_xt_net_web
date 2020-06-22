@@ -4,11 +4,13 @@ namespace Task_2_1_2_Custom_Paint
 {
     internal class Circle : Polygon
     {
+        // Fields
         protected double radius;
         protected int x;
         protected int y;
         protected int z;
 
+        // Constructor
         public Circle(string n, int x, int y, int z, double r) : base(n)
         {
             this.x = x;
@@ -25,12 +27,15 @@ namespace Task_2_1_2_Custom_Paint
             }
         }
 
-        public double LenCircle => 2 * Math.PI * radius;
+        // Properties
+        private double Length => 2 * Math.PI * radius;
 
-        public override double GetArea()
-        {
-            return Math.PI * radius * radius;
-        }              
+        private double Area => Math.PI * radius * radius;
+
+        // Methods
+        public override double GetArea() => Area;
+
+        public override double GetLength() => Length;
 
     }
 }

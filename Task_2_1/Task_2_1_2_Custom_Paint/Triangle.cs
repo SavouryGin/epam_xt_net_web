@@ -4,10 +4,12 @@ namespace Task_2_1_2_Custom_Paint
 {
     class Triangle : Polygon
     {
+        // Fields
         protected double lenA;
         protected double lenB;
         protected double lenC;
 
+        // Constructor
         public Triangle(string n, double a, double b, double c) : base(n)
         {
             if (a <= 0 || b <= 0 || c <= 0)
@@ -22,16 +24,20 @@ namespace Task_2_1_2_Custom_Paint
             }
             else
             {
-                throw new Exception("The triangle does not exist!");
+                throw new Exception("A triangle with such sides does not exist!");
             }
         }
 
-        public double Perimeter => (lenA + lenB + lenC);
+        // Properties
+        private double Perimeter => (lenA + lenB + lenC);
 
-        public override double GetArea()
-        {
-            double p = Perimeter / 2;
-            return Math.Sqrt(p * (p - lenA) * (p - lenB) * (p - lenC));
-        }
+        private double HalfP => Perimeter / 2;
+
+        private double Area => Math.Sqrt(HalfP * (HalfP - lenA) * (HalfP - lenB) * (HalfP - lenC));
+
+        // Methods
+        public override double GetArea() => Area;
+
+        public override double GetLength() => Perimeter;
     }
 }

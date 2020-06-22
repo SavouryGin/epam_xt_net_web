@@ -4,8 +4,10 @@ namespace Task_2_1_2_Custom_Paint
 {
     class Rectangle : Square
     {
+        // Fields
         protected double len2;
 
+        // Constructor
         public Rectangle(string n, double a, double b) : base(n, a)
         {
             if (b <= 0)
@@ -18,12 +20,15 @@ namespace Task_2_1_2_Custom_Paint
             }
         }
 
-        public new double Perimeter => len1 * 2 + len2 * 2;
+        // Properties
+        private double Perimeter => len1 * 2 + len2 * 2;
 
-        public override double GetArea()
-        {
-            return len1 * len2;
-        }
+        private double Area => len1 * len2;
+
+        // Methods
+        public override double GetArea() => Area;      
+
+        public override double GetLength() => Perimeter;
     }
 
 }
