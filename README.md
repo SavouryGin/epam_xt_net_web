@@ -26,3 +26,9 @@
 ## Task 2.2. Game Development
 * 2.2.1. Game
 
+## Task 3.1. Weakest Text
+* 3.1.1. Weakest Link
+* 3.1.2. Text Analysis
+
+## Task 3.2. Dynamic Array
+
