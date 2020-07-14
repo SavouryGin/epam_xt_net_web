@@ -44,13 +44,13 @@ Describe the classes of geometric shapes. Implement your own editor that interac
 Create a class hierarchy and define methods for a computer game. Try making a playable version of your project.
 
 ## Task 3.1. Weakest Text
-- [x] 3.1.1. **Weakest Link.**
+- [ ] 3.1.1. **Weakest Link.**
 There are N people in the circle, numbered from 1 to N. Every second person is crossed out in each round until there is one left. Create a program that simulates this process.
-- [x] 3.1.2. **Text Analysis.**
+- [ ] 3.1.2. **Text Analysis.**
 For each word in a given text, indicate how many times it occurs.
 
 ## Task 3.2. Dynamic Array
-- [x] 3.2.1. **Dynamic Array.** 
+- [ ] 3.2.1. **Dynamic Array.** 
 Based on the array, implement your own DynamicArray generic class, which is an array with a margin that stores objects of random types.
 
 ## Task 3.3. Pizza Time
