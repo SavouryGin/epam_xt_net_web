@@ -23,7 +23,7 @@ Write a program that determines the sum of non-negative elements in a one-dimens
 - [x] 1.1.10. **2d array.**
 Determine the sum of all elements of a two-dimensional array that are in even positions.
 
-## Task 1.2. STRING, NOT STING
+## Task 1.2. String, Not Sting
 - [x] 1.2.1. **Averages.**
 Write a program that determines the average word length in the entered text string.
 - [x] 1.2.2. **Doubler.**
@@ -44,20 +44,23 @@ Describe the classes of geometric shapes. Implement your own editor that interac
 Create a class hierarchy and define methods for a computer game. Try making a playable version of your project.
 
 ## Task 3.1. Weakest Text
-- [ ] 3.1.1. **Weakest Link.**
+- [x] 3.1.1. **Weakest Link.**
 There are N people in the circle, numbered from 1 to N. Every second person is crossed out in each round until there is one left. Create a program that simulates this process.
-- [ ] 3.1.2. **Text Analysis.**
+- [x] 3.1.2. **Text Analysis.**
 For each word in a given text, indicate how many times it occurs.
 
 ## Task 3.2. Dynamic Array
-- [ ] 3.2.1. **Dynamic Array.** 
+- [x] 3.2.1. **Dynamic Array.** 
 Based on the array, implement your own DynamicArray generic class, which is an array with a margin that stores objects of random types.
 
 ## Task 3.3. Pizza Time
-- [ ] 3.3.1. **Super Array.**
+- [x] 3.3.1. **Super Array.**
 Extend the array of numbers with a method that performs actions with each specific element. The action must be passed to the method using a Delegate.
-- [ ] 3.3.2. **Super String.**
+- [x] 3.3.2. **Super String.**
 Extend the String with a method that checks what language the word is written in the given string.
-- [ ] 3.3.3. **Pizza Time.**
+- [x] 3.3.3. **Pizza Time.**
 Simulate the work of a pizzeria in your application. The user and the pizzeria interact through the pizza order. The user places an order and waits for a notification that the pizza is ready. The peculiarity of your pizzeria is that you do not store customer data.
 
+## Task 4.1. Files
+- [ ] 4.1.1. **File Management System.**
+There is a folder with files. For all text files located in this folder or subfolders, save the history of changes with the ability to roll back the state to any moment.
