@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text;
+using System.Collections.Generic;
+using System.CodeDom;
 
 namespace Task_3_1_1_Weakest_Link
 {
@@ -13,7 +15,6 @@ namespace Task_3_1_1_Weakest_Link
 
             do
             {
-                #region Dialog with user
                 Console.WriteLine("---------------------------------------");
                 Console.Write("The number of players: ");
                 string firstInput = Console.ReadLine().Trim();
@@ -62,7 +63,6 @@ namespace Task_3_1_1_Weakest_Link
                     toCrossOut = rand.Next(1, number);
 
                 }
-                #endregion
 
                 Console.WriteLine("The circle of {0} players is ready. \n" +
                     "Start crossing out every {1}-th person.", number, toCrossOut);
@@ -100,47 +100,55 @@ namespace Task_3_1_1_Weakest_Link
                     " Сannot create the required array.");
             }
 
-            // Initialize all the variables
-            int[] positions = new int[n];
-            for (int i = 0; i < positions.Length; i++)
-            {
-                positions[i] = i + 1;
-            }
+            // Initialize circle of players
+            List<int> circle = new List<int>();
 
-            int total = n;
-            int pos = 0;
-            int quit = k;
-            int[] result = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                circle.Add(i + 1);
+            }
 
             // Handle the special cases
             if (k == 1)
             {
-                return positions;
+                return circle.ToArray();
             }
             else if (k == n)
             {
-                Array.Reverse(positions);
-                return positions;
+                circle.Reverse();
+                return circle.ToArray();
             }
+
+            int[] result = new int[n];
+            int pos = 0;
+            int toQuit = k - 1;
+            
 
             // Start counting
             do
             {
                 // Save crossed out player to the result array
-                result[pos] = quit;
-                total--;
+                result[pos] = circle[toQuit];
                 pos++;
 
-                // Recalculate crossed out number
-                quit += k;
+                // Deleted this player from circle
+                circle.Remove(circle[toQuit]);
 
-                if (quit > n)
+                // Recalculate crossed out number
+                toQuit += k - 1;
+
+                while (circle.Count <= toQuit)
                 {
-                    quit -= n;
+                    toQuit -= circle.Count;
+                }              
+
+                if (circle.Count == 1)
+                {
+                    result[pos] = circle[0];
+                    circle.Remove(circle[0]);
                 }
 
-
-            } while (total != 0);
+            } while (circle.Count != 0);
 
             return result;
         }

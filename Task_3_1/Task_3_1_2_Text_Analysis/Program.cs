@@ -8,7 +8,6 @@ namespace Task_3_1_2_Text_Analysis
     {
         static void Main(string[] args)
         {
-            #region Dialog with the editor
             Console.WriteLine("=================================================================\n" +
                               "***  \\(^_^)/  Hello, dear fashion magazine editor!  \\(^_^)/   ***\n" +
                               "*** This fancy program will check your text for originality.  ***\n" +
@@ -18,43 +17,19 @@ namespace Task_3_1_2_Text_Analysis
 
             do
             {
-                bool endEntering = false;
-                StringBuilder input = new StringBuilder();
-
                 // Request user text in parts
-                do
-                {
-                    Console.WriteLine("\t--- Enter a part of your text, please: ---");
-                    
-                    string rawText = Console.ReadLine().ToLower().Trim();
-                    input.Append(rawText + " ");
+                string text = DialogWithEditor();
 
-                    Console.WriteLine("\t--- Type 'yes' if you wish to add more parts: ---");
-                    string answer = Console.ReadLine().ToLower().Trim();
-
-                    if (answer == "yes" || answer == "y")
-                    {
-                        continue;
-                    } 
-                    else
-                    {
-                        endEntering = true;
-                    }
-
-                } while (!endEntering);
-
-                if (input.Length <= 1)
+                if (text.Length <= 1)
                 {
                     Console.WriteLine("The text you entered is too short. Try again!");
                     continue;
                 }
 
-                #endregion
-
                 try
                 {
                     Dictionary<string, int> result = new Dictionary<string, int>();
-                    result = WordCounter(input.ToString());
+                    result = WordCounter(text);
                     DisplayResults(result);
                 } 
                 catch (Exception e)
@@ -64,7 +39,6 @@ namespace Task_3_1_2_Text_Analysis
                     continue;
                 }             
 
-                #region Escape dialog
                 Console.WriteLine("-------------------------------------------------------------");
                 Console.Write("Type 'yes' if you want to continue or something else to break: ");
                 string ans = Console.ReadLine().ToLower().Trim();
@@ -81,7 +55,6 @@ namespace Task_3_1_2_Text_Analysis
             } while (!done);
 
             Console.ReadKey();
-            #endregion
         }
 
         /* The method takes a string as input, breaks it into words, 
@@ -164,6 +137,35 @@ namespace Task_3_1_2_Text_Analysis
 
                 Console.WriteLine("Try to replace these words with synonyms.");
             }
+        }
+
+        public static string DialogWithEditor()
+        {
+            StringBuilder input = new StringBuilder();
+            bool endEntering = false;
+            
+            do
+            {
+                Console.WriteLine("\t--- Enter a part of your text, please: ---");
+
+                string rawText = Console.ReadLine().ToLower().Trim();
+                input.Append(rawText + " ");
+
+                Console.WriteLine("\t--- Type 'yes' if you wish to add more parts: ---");
+                string answer = Console.ReadLine().ToLower().Trim();
+
+                if (answer == "yes" || answer == "y")
+                {
+                    continue;
+                }
+                else
+                {
+                    endEntering = true;
+                }
+
+            } while (!endEntering);
+
+            return input.ToString();
         }
     }   
 }
