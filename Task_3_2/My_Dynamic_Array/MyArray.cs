@@ -40,7 +40,7 @@ namespace My_Dynamic_Array
         }
 
         // === Properties ===
-        public int Len { get; set; }               // Getting the number of array elements
+        public int Len { get; private set; }        // Getting the number of array elements
 
         public int Capacity                        // Getting the capacity of the internal array
         {
@@ -75,7 +75,7 @@ namespace My_Dynamic_Array
         // === Generic methods ===
         public void Add(T item)
         {
-            if (Len + 1 > Capacity)
+            if (Len + 1 >= Capacity)
             {
                 int newCapacity = Capacity * 2;       // Double the capacity
                 T[] tempArray = new T[newCapacity];
@@ -90,12 +90,12 @@ namespace My_Dynamic_Array
 
         public void AddRange(IEnumerable<T> coll)
         {
-            if (!coll.Any())                           // Check for an empty collection
+            if (!coll.Any() || coll == null)            // Check for an empty collection
             {
                 throw new ArgumentException("You have provided an empty collection.");
             }
             
-            if (Len + coll.Count() > Capacity)         // Double capacity if necessary
+            if (Len + coll.Count() >= Capacity)         // Double capacity if necessary
             {
                 int newCapacity = Capacity * 2 + coll.Count();
                 T[] tempArray = new T[newCapacity];
