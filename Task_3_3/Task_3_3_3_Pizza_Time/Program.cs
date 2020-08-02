@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Task_3_3_3_Pizza_Time
 {
-	/// <summary>
-	/// The main class to set up tests and demo the final product.
-	/// Our pizzeria can do the following:
-	/// - Allow the customers to enter in if they want a large or extra large pizza. 
-	/// - Customers can also choose to have 1, 2 or 3 toppings. 
-	/// - Calculate the cost of the pizza and the two taxes (provincial and federal).
-	/// - Display the cost of the pizza, each tax and the total cost.
-	/// </summary>
-	class Program
+    /// <summary>
+    /// The main class to set up tests and demo the final product.
+    /// Our pizzeria can do the following:
+    /// - Allow the customers to enter in if they want a large or extra large pizza. 
+    /// - Customers can also choose to have 1, 2 or 3 toppings. 
+    /// - Calculate the cost of the pizza, preparing time and the two taxes (provincial and federal).
+    /// - Display the cost of the pizza, preparing time, each tax and the total cost.
+    /// </summary>
+    class Program
 	{
 		static void Main(string[] args)
 		{
@@ -32,6 +31,8 @@ namespace Task_3_3_3_Pizza_Time
 			// Add pizzas to cusmomers order
 			first.AddToOrder(pizza1);
 			first.AddToOrder(pizza2);
+			first.MakeOrder(pizza1);
+			first.MakeOrder(pizza2);
 
 			Customer second = new Customer(125);
 			IPizza pizza3 = PizzaFactory.OrderPizza(PizzaSizes.ExtraLarge);
@@ -42,6 +43,8 @@ namespace Task_3_3_3_Pizza_Time
 
 			second.AddToOrder(pizza3);
 			second.AddToOrder(pizza4);
+			second.MakeOrder(pizza3);
+			second.MakeOrder(pizza4);
 
 			// Print all receipts
 			Console.WriteLine("The customer # {0} ordered:", first.Id);

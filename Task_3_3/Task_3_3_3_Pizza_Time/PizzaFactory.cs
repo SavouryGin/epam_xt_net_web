@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Threading;
 
 namespace Task_3_3_3_Pizza_Time
 {
-	static class PizzaFactory
+    static class PizzaFactory
 	{
 
 		private static decimal localTax = .6M;
@@ -50,6 +51,19 @@ namespace Task_3_3_3_Pizza_Time
 			Console.WriteLine("\tAfter Federal Tax: " + (pizza.Price + federalTax));
 			Console.WriteLine("\tAfter Local Tax: " + (pizza.Price + localTax));
 			Console.WriteLine("\tTotal for pizza: " + (pizza.Price + localTax + federalTax));
+		}
+
+		public static void ProcessOrder(Order order)
+		{
+			Console.WriteLine("Pizzeria: Please wait. Processing your order ...");
+			MakePizza(order);
+		}
+
+		public static void MakePizza(Order order)
+		{
+			Thread.Sleep(2000);
+			Console.WriteLine($"Pizzeria: Dear Customer #{order.Customer}, your {order.Pizza.Name} is ready!");
+			order.Ready();
 		}
 	}
 }

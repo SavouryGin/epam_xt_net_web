@@ -50,6 +50,7 @@
     <Compile Include="LargePizza.cs" />
     <Compile Include="OliveTopping.cs" />
     <Compile Include="Options.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="PeperoniTopping.cs" />
     <Compile Include="PizzaFactory.cs" />
     <Compile Include="Program.cs" />

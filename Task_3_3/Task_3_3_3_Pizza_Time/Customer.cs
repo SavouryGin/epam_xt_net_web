@@ -7,6 +7,7 @@ namespace Task_3_3_3_Pizza_Time
     {
         private int id;
         private List<IPizza> pizzas;
+        private Order order;
 
         public Customer(int id)
         {
@@ -15,6 +16,20 @@ namespace Task_3_3_3_Pizza_Time
         }
 
         public int Id { get => id; set => id = value; }
+
+        public void MakeOrder(IPizza pizza)
+        {
+            Console.WriteLine($"Customer #{id}: I want {pizza.Name}");
+            order = new Order(id.ToString(), pizza);
+            order.OnReady += TakePizza;
+            PizzaFactory.ProcessOrder(order);
+        }
+
+        public void TakePizza(Order order)
+        {
+            Console.WriteLine($"Customer #{id}: order received!");
+            order.OnReady -= TakePizza;
+        }
 
         public void AddToOrder(IPizza pizza)
         {
@@ -32,7 +47,7 @@ namespace Task_3_3_3_Pizza_Time
                 time += pizza.Time;
             }
 
-            Console.WriteLine("Please wait for {0} minutes", time);
+            Console.WriteLine("Thanks for waiting {0} minutes", time);
             Console.WriteLine("=== Total: {0} ===", total);
         }       
         
