@@ -1,14 +1,13 @@
 module.exports = class Service {
 
     constructor() {
-        this.store = {}
-        this._id = 0
+        this.store = {}        
         this._count = 0
     }
 
     add(obj) {
-        this.store[this._id] = obj
-        this._id++
+        let id = `id-${this._count}`
+        this.store[id] = obj
         this._count++
     }
 
@@ -35,7 +34,6 @@ module.exports = class Service {
         if (this.store.hasOwnProperty(id)) {
             const delObj = this.store[id]
             delete this.store[id]
-            this._count--
             return delObj
         } else {
             return null
