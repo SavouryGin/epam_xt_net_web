@@ -65,11 +65,11 @@ Simulate the work of a pizzeria in your application. The user and the pizzeria i
 - [ ] 4.1.1. **File Management System.**
 There is a folder with files. For all text files located in this folder or subfolders, save the history of changes with the ability to roll back the state to any moment.
 
-## Task 5. JavaScript Basics
-- [ ] 5.1. ** Char Remover. **
+## Task 5.1. JavaScript Basics
+- [ ] 5.1.1. ** Char Remover. **
 Write a function that receives a string consisting of several words. Words are separated by whitespace and punctuation marks. The function should return a string in which all characters that repeat at least in one of the words more than once will be removed.
-- [ ] 5.2. ** Math Calculator. **
+- [ ] 5.1.2. ** Math Calculator. **
 Write a function to calculate the result of an arithmetic expression. Input is a string with an expression, output is a calculated value. The result of the expression is evaluated sequentially. Operations are not prioritized. Output the result with precision up to 2 decimal places.
-- [ ] 5.3. ** Mini Crud. **
+- [ ] 5.1.3. ** Mini Crud. **
 Create a library to store data in application memory.
 
