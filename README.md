@@ -73,3 +73,14 @@ Write a function to calculate the result of an arithmetic expression. Input is a
 - [ ] 5.1.3. **Mini Crud.**
 Create a library to store data in application memory.
 
+## Task 6.1. Web Basics
+- [ ] 6.1.1. **List Menu.**
+Make up a menu using the <ul> and <li> tags. Width the menu should be fixed at 200px.
+- [ ] 6.1.2. **Registration Form.**
+Make up a registration form. The width of the form and its margins must be fixed.
+- [ ] 6.1.3. **Pointing Block.**
+Make up a page. The block width changes depending on the size of the browser window. The pointer is always located in the middle of the block, the size of the pointer is fixed.
+- [ ] 6.1.4. **Three Column Block.**
+Make up the page with three columns. The block width is fixed. Alignment is centered.
+- [ ] 6.1.5. **G-keep.**
+Create a simplified version of google keep. To work with notes, use some of the methods of the library that you created in task 5.1.3.
