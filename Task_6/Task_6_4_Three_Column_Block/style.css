@@ -101,6 +101,10 @@ p {
     padding: 6px;
 }
 
+.more:hover {
+    background-color: #c95027;
+}
+
 body {
     padding: 20px;
     background-color: #4E6379;    

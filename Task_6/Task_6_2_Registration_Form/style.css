@@ -83,6 +83,15 @@ form {
     font-size: 24px;
 }
 
+.submitButton:hover {
+    background-color: #f3c222;
+    box-shadow: 4px 4px 4px #0a679c;
+}
+
+.submitButton:focus {
+    box-shadow: 4px 4px 4px #0a679c;
+}
+
 .passBlock1, .passBlock2 {
     display: inline-block;
     margin: 10px 0px;
@@ -114,6 +123,9 @@ form {
     font-size: 24px;
 }
 
+.mailLine:focus, .inputLine:focus {
+    box-shadow: 4px 4px 4px #0a679c;
+}
 
 body {
     padding: 20px;
