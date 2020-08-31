@@ -75,7 +75,7 @@ Create a library to store data in application memory.
 
 ## Task 6.1. Web Basics
 - [ ] 6.1.1. **List Menu.**
-Make up a menu using the <ul> and <li> tags. Width the menu should be fixed at 200px.
+Make up a menu using the ul and li tags. Width the menu should be fixed at 200px.
 - [ ] 6.1.2. **Registration Form.**
 Make up a registration form. The width of the form and its margins must be fixed.
 - [ ] 6.1.3. **Pointing Block.**
