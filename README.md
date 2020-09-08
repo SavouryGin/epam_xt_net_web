@@ -62,25 +62,42 @@ Extend the String with a method that checks what language the word is written in
 Simulate the work of a pizzeria in your application. The user and the pizzeria interact through the pizza order. The user places an order and waits for a notification that the pizza is ready. The peculiarity of your pizzeria is that you do not store customer data.
 
 ## Task 4.1. Files
-- [ ] 4.1.1. **File Management System.**
+- [x] 4.1.1. **File Management System.**
 There is a folder with files. For all text files located in this folder or subfolders, save the history of changes with the ability to roll back the state to any moment.
 
 ## Task 5.1. JavaScript Basics
-- [ ] 5.1.1. **Char Remover.**
+- [x] 5.1.1. **Char Remover.**
 Write a function that receives a string consisting of several words. Words are separated by whitespace and punctuation marks. The function should return a string in which all characters that repeat at least in one of the words more than once will be removed.
-- [ ] 5.1.2. **Math Calculator.**
+- [x] 5.1.2. **Math Calculator.**
 Write a function to calculate the result of an arithmetic expression. Input is a string with an expression, output is a calculated value. The result of the expression is evaluated sequentially. Operations are not prioritized. Output the result with precision up to 2 decimal places.
-- [ ] 5.1.3. **Mini Crud.**
+- [x] 5.1.3. **Mini Crud.**
 Create a library to store data in application memory.
 
 ## Task 6.1. Web Basics
-- [ ] 6.1.1. **List Menu.**
+- [x] 6.1.1. **List Menu.**
 Make up a menu using the ul and li tags. Width the menu should be fixed at 200px.
-- [ ] 6.1.2. **Registration Form.**
+- [x] 6.1.2. **Registration Form.**
 Make up a registration form. The width of the form and its margins must be fixed.
-- [ ] 6.1.3. **Pointing Block.**
+- [x] 6.1.3. **Pointing Block.**
 Make up a page. The block width changes depending on the size of the browser window. The pointer is always located in the middle of the block, the size of the pointer is fixed.
-- [ ] 6.1.4. **Three Column Block.**
+- [x] 6.1.4. **Three Column Block.**
 Make up the page with three columns. The block width is fixed. Alignment is centered.
-- [ ] 6.1.5. **G-keep.**
+- [x] 6.1.5. **G-keep.**
 Create a simplified version of google keep. To work with notes, use some of the methods of the library that you created in task 5.1.3.
+[My G-keep: Redone](https://github.com/SavouryGin/my_g-keep)
+
+## Task 7.1. Three-Layer
+- [ ] 7.1.1. **Users and Awards.**
+Implement business logic that allows you to work with a list of users: create, delete, and get their list. Use a three-layer architecture as a template. Records must be saved to hard disk in any format, for example, JSON.
+- [ ] 7.1.2. **UI.**
+Add a visual interface based on ASP.NET Web Pages to the created business logic. The application should be able to perform all the same actions as the console version.
+- [ ] 7.1.3. **CRUD.**
+Extend the functionality of the application to CRUD-complete: create, read, update and delete the entities of the list.
+- [ ] 7.1.4. **Images.**
+Implement the ability to add images to users and awards, uploaded by the user himself.
+
+## Task 7.2. Role-Playing Game
+- [ ] 7.2.1. **Roles.**
+Add a role model to the application. Provide a login window and a new user registration form. The user can be anonymous, registered or administrator.
+- [ ] 7.2.2. **Database.**
+Implement a Microsoft SQL Server database to store application data. The database must be converted to third normal form.
