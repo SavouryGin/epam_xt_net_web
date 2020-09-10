@@ -35,16 +35,5 @@ namespace Mappers
                 Awards = user.Awards.Select(x => x.ToDomain()).ToList()
             };
         }
-
-        public static Award ToDomain(this AwardModel award)
-        {
-            if (award == null) return null;
-
-            return new Award
-            {
-                Title = award.Title,
-                AwardId = award.AwardId
-            };
-        }
     }
 }

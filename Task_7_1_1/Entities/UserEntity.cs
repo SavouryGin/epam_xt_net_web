@@ -1,21 +1,20 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Entities
 {
-    public class User
+    public class UserEntity : BaseEntity
     {
         public string Name { get; set; }
 
         public int Age { get; set; }
 
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         public DateTime DateOfBirth { get; set; }
-
-        public List<Award> Awards { get; set; }
     }
 }

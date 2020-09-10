@@ -13,7 +13,7 @@ namespace Data.Repositories.Abstract
 
         void UpdateAward(AwardEntity award);
 
-        List<AwardEntity> GetAllAwards();
+        IEnumerable<AwardEntity> GetAllAwards();
 
         void DeleteAwardById(int id);
     }

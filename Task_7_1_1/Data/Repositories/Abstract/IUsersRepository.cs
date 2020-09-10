@@ -14,9 +14,9 @@ namespace Data.Repositories.Abstract
 
         void UpdateUser(UserEntity user);
 
-        UserEntity GetUserById(int id);
+        UserEntity GetUserById(Guid id);
 
-        void DeleteUserById(int id);
+        void DeleteUserById(Guid id);
 
     }
 }

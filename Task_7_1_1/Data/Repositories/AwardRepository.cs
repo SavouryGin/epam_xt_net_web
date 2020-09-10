@@ -8,28 +8,24 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    // CRUD repository
-    class UsersRepository : IUsersRepository
+    class AwardRepository : IAwardRepository
     {
-        // A thread-safe collection of users in a single copy
-        public static List<UserEntity> list = new List<UserEntity>();
-
-        public void AddUser(UserEntity user)
+        public void AddAward(AwardEntity award)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteUserById(int id)
+        public void DeleteAwardById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public UserEntity GetUserById(int id)
+        public IEnumerable<AwardEntity> GetAllAwards()
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateUser(UserEntity user)
+        public void UpdateAward(AwardEntity award)
         {
             throw new NotImplementedException();
         }
