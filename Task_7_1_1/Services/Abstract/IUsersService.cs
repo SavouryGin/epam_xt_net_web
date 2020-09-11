@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Domain;
 
 namespace Services.Abstract
@@ -13,8 +9,8 @@ namespace Services.Abstract
 
         void UpdateUser(User user);
 
-        User GetUserById(int id);
+        User GetUserById(Guid id);
 
-        void DeleteUserById(int id);
+        void DeleteUserById(Guid id);
     }
 }

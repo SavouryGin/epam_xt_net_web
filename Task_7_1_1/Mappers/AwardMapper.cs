@@ -1,11 +1,6 @@
 ﻿using Domain;
 using Entities;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Mappers
 {
@@ -15,9 +10,7 @@ namespace Mappers
         {
             return new AwardEntity
             {
-                AwardId = award.AwardId,
-                Title = award.Title,
-                //UserId = award.UserId
+                Title = award.Title
             };
         }
 
@@ -27,8 +20,17 @@ namespace Mappers
 
             return new Award
             {
-                Title = award.Title,
-                AwardId = award.AwardId
+                Title = award.Title
+            };
+        }
+
+        public static AwardModel ToModel(this Award award)
+        {
+            if (award == null) return null;
+
+            return new AwardModel
+            {
+                Title = award.Title
             };
         }
     }

@@ -3,15 +3,12 @@ using Domain;
 using Services.Abstract;
 using System;
 using Mappers;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services
 {
     public class UsersService : IUsersService
     {
+        // Dependency injection
         private readonly IUsersRepository _usersRepository;
 
         public UsersService(IUsersRepository usersRepository)
@@ -24,12 +21,12 @@ namespace Services
             _usersRepository.AddUser(user.ToEntity());
         }
 
-        public void DeleteUserById(int id)
+        public void DeleteUserById(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public User GetUserById(int id)
+        public User GetUserById(Guid id)
         {
             throw new NotImplementedException();
         }

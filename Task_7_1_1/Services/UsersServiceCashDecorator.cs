@@ -2,9 +2,6 @@
 using Services.Abstract;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services
 {
@@ -26,12 +23,12 @@ namespace Services
             _usersService.AddUser(user);
         }
 
-        public void DeleteUserById(int id)
+        public void DeleteUserById(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public User GetUserById(int id)
+        public User GetUserById(Guid id)
         {
             throw new NotImplementedException();
         }

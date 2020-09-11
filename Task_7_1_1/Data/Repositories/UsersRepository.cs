@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
@@ -14,26 +12,26 @@ namespace Data.Repositories
     class UsersRepository : IUsersRepository
     {
         // A thread-safe collection of users in a single copy
-        public static List<UserEntity> list = new List<UserEntity>();
+        // public static List<UserEntity> _list = new List<UserEntity>();
 
-        public const string LocalDataPath = "Data\\";
-        public static string DataPath => Environment.CurrentDirectory + "\\" + LocalDataPath;
+        public static string DataPath => Environment.CurrentDirectory + "\\Data\\Users\\";
 
         public void AddUser(UserEntity user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            var userName = "Note_" + user.Id + ".json";
+            var userName = "User_" + user.Id + ".json";
 
             var userStr = JsonConvert.SerializeObject(user);
 
-            using (var writer = new StreamWriter(LocalDataPath + userName))
+            using (var writer = new StreamWriter(DataPath + userName))
                 writer.Write(userStr);
         }
 
         public void DeleteUserById(Guid id)
         {
+            // TODO: реализовать метод DeleteUserById
             throw new NotImplementedException();
         }
 
@@ -44,12 +42,13 @@ namespace Data.Repositories
 
         public void UpdateUser(UserEntity user)
         {
+            // TODO: реализовать метод UpdateUser
             throw new NotImplementedException();
         }
 
         public IEnumerable<UserEntity> GetAllUsers()
         {
-            var directory = new DirectoryInfo(Environment.CurrentDirectory + "\\" + LocalDataPath);
+            var directory = new DirectoryInfo(DataPath);
 
             foreach (var file in directory.GetFiles())
                 using (var reader = new StreamReader(file.FullName))

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Domain;
 using Entities;
 using Models;
@@ -13,12 +9,13 @@ namespace Mappers
     {
         public static UserEntity ToEntity(this User user)
         {
+            if (user == null) return null;
+
             return new UserEntity
             {
                 Age = user.Age,
                 Name = user.Name,
-                DateOfBirth = user.DateOfBirth,
-                UserId = user.UserId
+                DateOfBirth = user.DateOfBirth
             };
         }
 
@@ -30,9 +27,21 @@ namespace Mappers
             {
                 Name = user.Name,
                 Age = user.Age,
-                UserId = user.UserId,
                 DateOfBirth = user.DateOfBirth,
                 Awards = user.Awards.Select(x => x.ToDomain()).ToList()
+            };
+        }
+
+        public static UserModel ToModel(this User user)
+        {
+            if (user == null) return null;
+
+            return new UserModel
+            {
+                Name = user.Name,
+                Age = user.Age,
+                DateOfBirth = user.DateOfBirth,
+                Awards = user.Awards.Select(x => x.ToModel()).ToList()
             };
         }
     }
