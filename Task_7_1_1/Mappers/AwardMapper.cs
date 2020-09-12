@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Entities;
 using Models;
+using System.Linq;
 
 namespace Mappers
 {
@@ -20,7 +21,8 @@ namespace Mappers
 
             return new Award
             {
-                Title = award.Title
+                Title = award.Title,
+                UsersAwarded = award.UsersAwarded.Select(x => x.ToDomain()).ToList()
             };
         }
 
@@ -30,7 +32,8 @@ namespace Mappers
 
             return new AwardModel
             {
-                Title = award.Title
+                Title = award.Title,
+                UsersAwarded = award.UsersAwarded.Select(x => x.ToModel()).ToList()
             };
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Data.Repositories.Abstract;
+using Data.Repositories;
 using Domain;
 using Services.Abstract;
 using System;
@@ -11,9 +12,9 @@ namespace Services
         // Dependency injection
         private readonly IUsersRepository _usersRepository;
 
-        public UsersService(IUsersRepository usersRepository)
+        public UsersService()
         {
-            _usersRepository = usersRepository;
+            _usersRepository = new UsersRepository();
         }
 
         public void AddUser(User user)

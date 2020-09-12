@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAwardsService.cs" />
     <Compile Include="Abstract\IUsersService.cs" />
+    <Compile Include="AwardsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsersService.cs" />
-    <Compile Include="UsersServiceLoggerDecorator.cs" />
+    <Compile Include="UsersServiceCashDecorator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">

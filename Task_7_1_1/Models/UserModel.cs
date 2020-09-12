@@ -12,5 +12,7 @@ namespace Models
         public DateTime DateOfBirth { get; set; }
 
         public List<AwardModel> Awards { get; set; }
+
+        public Guid Id { get; set; }
     }
 }

@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
@@ -42,6 +40,11 @@ namespace Data.Repositories
         {
             // TODO: UpdateAward
             throw new NotImplementedException();
+        }
+
+        public AwardEntity GetAwardById(Guid id)
+        {
+            return GetAllAwards().FirstOrDefault(n => n.Id == id);
         }
     }
 }

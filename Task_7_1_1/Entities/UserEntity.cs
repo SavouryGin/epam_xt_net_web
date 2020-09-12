@@ -1,6 +1,5 @@
 ﻿using Entities.Abstract;
 using System;
-using System.Collections.Generic;
 
 namespace Entities
 {
@@ -12,6 +11,6 @@ namespace Entities
 
         public DateTime DateOfBirth { get; set; }
 
-        public List<AwardEntity> UserAwards { get; set; }
+        //public List<AwardEntity> UserAwards { get; set; }
     }
 }

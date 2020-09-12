@@ -6,13 +6,13 @@ using System.Collections.Generic;
 namespace Services
 {
     // Декоратор для логирования событий в сервисе
-    public class UsersServiceLoggerDecorator : IUsersService
+    public class UsersServiceCashDecorator : IUsersService
     {
         private readonly IUsersService _usersService;
         // для кэширования
         private List<User> _users = new List<User>();
 
-        public UsersServiceLoggerDecorator(IUsersService usersService)
+        public UsersServiceCashDecorator(IUsersService usersService)
         {
             _usersService = usersService;
         }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Entities;
 
 namespace Data.Repositories.Abstract
@@ -9,7 +9,7 @@ namespace Data.Repositories.Abstract
 
         void UpdateAward(AwardEntity award);
 
-        IEnumerable<AwardEntity> GetAllAwards();
+        AwardEntity GetAwardById(Guid id);
 
         void DeleteAwardById(int id);
     }

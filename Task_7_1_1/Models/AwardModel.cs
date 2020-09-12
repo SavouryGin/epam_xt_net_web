@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Models
 {
     public class AwardModel
     {
         public string Title { get; set; }
+
+        public List<UserModel> UsersAwarded { get; set; }
 
     }
 }

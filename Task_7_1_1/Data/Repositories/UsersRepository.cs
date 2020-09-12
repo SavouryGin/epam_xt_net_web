@@ -9,12 +9,13 @@ using System.Linq;
 namespace Data.Repositories
 {
     // CRUD repository
-    class UsersRepository : IUsersRepository
+    public class UsersRepository : IUsersRepository
     {
         // A thread-safe collection of users in a single copy
         // public static List<UserEntity> _list = new List<UserEntity>();
 
-        public static string DataPath => Environment.CurrentDirectory + "\\Data\\Users\\";
+        public const string LocalDataPath = "Data\\";
+        public static string DataPath => Environment.CurrentDirectory + "\\" + LocalDataPath;
 
         public void AddUser(UserEntity user)
         {
@@ -23,7 +24,11 @@ namespace Data.Repositories
 
             var userName = "User_" + user.Id + ".json";
 
+            Console.WriteLine(userName);
+
             var userStr = JsonConvert.SerializeObject(user);
+
+            Console.WriteLine(userStr);
 
             using (var writer = new StreamWriter(DataPath + userName))
                 writer.Write(userStr);
@@ -48,7 +53,7 @@ namespace Data.Repositories
 
         public IEnumerable<UserEntity> GetAllUsers()
         {
-            var directory = new DirectoryInfo(DataPath);
+            var directory = new DirectoryInfo(Environment.CurrentDirectory + "\\" + LocalDataPath);
 
             foreach (var file in directory.GetFiles())
                 using (var reader = new StreamReader(file.FullName))

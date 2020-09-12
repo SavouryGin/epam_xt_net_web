@@ -1,22 +1,18 @@
 ﻿using Mappers;
 using Models;
+using Services;
 using Services.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace API.Controllers
 {
     // Фасад
-    class UsersController
+    public class UsersController
     {
         private readonly IUsersService _usersService;
 
-        public UsersController(IUsersService usersService)
+        public UsersController()
         {
-            _usersService = usersService;
+            _usersService = new UsersService();
         }
 
         public void AddUser(UserModel model)

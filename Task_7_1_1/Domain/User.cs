@@ -13,5 +13,7 @@ namespace Domain
 
         // List of user awards
         public List<Award> Awards { get; set; }
+
+        public Guid Id { get; set; }
     }
 }

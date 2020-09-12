@@ -15,7 +15,8 @@ namespace Mappers
             {
                 Age = user.Age,
                 Name = user.Name,
-                DateOfBirth = user.DateOfBirth
+                DateOfBirth = user.DateOfBirth,
+                Id = user.Id
             };
         }
 
@@ -28,6 +29,7 @@ namespace Mappers
                 Name = user.Name,
                 Age = user.Age,
                 DateOfBirth = user.DateOfBirth,
+                Id = user.Id,
                 Awards = user.Awards.Select(x => x.ToDomain()).ToList()
             };
         }
@@ -41,6 +43,7 @@ namespace Mappers
                 Name = user.Name,
                 Age = user.Age,
                 DateOfBirth = user.DateOfBirth,
+                Id = user.Id,
                 Awards = user.Awards.Select(x => x.ToModel()).ToList()
             };
         }
