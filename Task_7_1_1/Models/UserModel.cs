@@ -14,5 +14,13 @@ namespace Models
         public DateTime DateOfBirth { get; set; }
 
         public List<AwardModel> Awards { get; set; }
+
+        public override string ToString()
+        {
+            string userDescription = string.Format("\tFirst Name: {0}\n" +
+                "\tLast Name: {1}\n \tBirthday: {2:M}",
+                this.FirstName, this.LastName, this.DateOfBirth);
+            return userDescription;
+        }
     }
 }

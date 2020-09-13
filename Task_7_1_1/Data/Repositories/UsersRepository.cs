@@ -11,14 +11,6 @@ namespace Data.Repositories
     // CRUD repository
     public class UsersRepository : IUsersRepository
     {
-        // A thread-safe collection of users in a single copy
-        //public static List<UserEntity> _list = new List<UserEntity>();
-
-        //public UsersRepository()
-        //{
-        //    _list = GetAllUsers().ToList();
-        //}
-
         // Path to local file storage
         public static string DataPath => Environment.CurrentDirectory + "\\Data\\Users\\";
 

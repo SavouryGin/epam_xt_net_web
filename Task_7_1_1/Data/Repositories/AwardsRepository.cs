@@ -11,6 +11,7 @@ namespace Data.Repositories
     public class AwardsRepository : IAwardsRepository
     {
         public static string DataPath => Environment.CurrentDirectory + "\\Data\\Awards\\";
+
         public void CreateNewAward(AwardEntity award)
         {
             if (award == null)
@@ -32,8 +33,11 @@ namespace Data.Repositories
 
         public IEnumerable<AwardEntity> GetAllAwards()
         {
-            // TODO: GetAllAwards
-            throw new NotImplementedException();
+            var directory = new DirectoryInfo(DataPath);
+
+            foreach (var file in directory.GetFiles())
+                using (var reader = new StreamReader(file.FullName))
+                    yield return JsonConvert.DeserializeObject<AwardEntity>(reader.ReadToEnd());
         }
 
         public void UpdateAward(AwardEntity award)

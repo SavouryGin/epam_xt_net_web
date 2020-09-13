@@ -16,5 +16,7 @@ namespace Services.Abstract
         Award GetAwardById(Guid id);
 
         void DeleteAwardById(Guid id);
+
+        List<Award> GetAwardsList();
     }
 }

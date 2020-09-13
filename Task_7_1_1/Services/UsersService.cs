@@ -11,7 +11,6 @@ namespace Services
 {
     public class UsersService : IUsersService
     {
-        // Dependency injection
         private readonly IUsersRepository _usersRepository;
 
         private static List<User> _listOfUsers = new List<User>();
@@ -33,6 +32,7 @@ namespace Services
 
         public void DeleteUserById(Guid id)
         {
+            // TODO: DeleteUserById
             throw new NotImplementedException();
         }
 
@@ -43,13 +43,13 @@ namespace Services
 
         public void UpdateUser(User user)
         {
+            // TODO: UpdateUser
             throw new NotImplementedException();
         }
 
-        public IEnumerable<User> GetUsersList()
+        public List<User> GetUsersList()
         {
-
-            throw new NotImplementedException();
+            return _listOfUsers;
         }
     }
 }

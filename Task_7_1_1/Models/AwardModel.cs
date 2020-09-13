@@ -8,5 +8,7 @@ namespace Models
 
         public List<UserModel> UsersAwarded { get; set; }
 
+        public override string ToString() => Title;
+
     }
 }

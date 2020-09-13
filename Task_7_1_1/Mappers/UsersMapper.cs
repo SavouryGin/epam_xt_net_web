@@ -11,6 +11,7 @@ namespace Mappers
         public static UserEntity ToEntity(this User user)
         {
             if (user == null) return null;
+
             DateTime created = DateTime.Now;
 
             return new UserEntity
@@ -29,16 +30,18 @@ namespace Mappers
 
             return new User
             {
-                Name = string.Format("{0}|{1}", user.FirstName, user.LastName),
+                Name = string.Format("{0}|{1}", user.FirstName.Trim(), user.LastName.Trim()),
                 Age = user.Age,
                 DateOfBirth = user.DateOfBirth,
                 Id = Guid.NewGuid(),
-                Awards = user.Awards.Select(x => x.ToDomain()).ToList()
+                Awards = user.Awards.Select(x => x.ModelToDomain()).ToList()
             };
         }
 
         public static User EntityToDomain(this UserEntity user)
         {
+            if (user == null) return null;
+
             return new User
             {
                 Name = user.Name,
@@ -48,7 +51,7 @@ namespace Mappers
             };
         }
 
-        public static UserModel ToModel(this User user)
+        public static UserModel DomainToModel(this User user)
         {
             if (user == null) return null;
 
@@ -57,8 +60,7 @@ namespace Mappers
                 FirstName = user.Name.Split('|')[0],
                 LastName = user.Name.Split('|')[1],
                 Age = user.Age,
-                DateOfBirth = user.DateOfBirth,
-                Awards = user.Awards.Select(x => x.ToModel()).ToList()
+                DateOfBirth = user.DateOfBirth
             };
         }
     }

@@ -2,6 +2,8 @@
 using Models;
 using Services;
 using Services.Abstract;
+using System;
+using System.Linq;
 
 namespace API.Controllers
 {
@@ -19,13 +21,12 @@ namespace API.Controllers
             _usersService.CreateNewUser(model.ModelToDomain());
         }
 
-        //public UserModel FindUser(string fname, string lname)
-        //{
-        //    string name = string.Format("{0}|{1}", fname, lname);
-        //    _usersService.GetUserById()
-
-        //}
-
-
+        public UserModel FindUserByName(string fname, string lname)
+        {
+            string name = string.Format("{0}|{1}", fname, lname);
+            var user = _usersService.GetUsersList().FirstOrDefault(n => n.Name == name);
+            if (user == null) return null;
+            return user.DomainToModel();
+        }
     }
 }

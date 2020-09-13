@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Domain;
 
 namespace Services.Abstract
@@ -12,5 +13,7 @@ namespace Services.Abstract
         User GetUserById(Guid id);
 
         void DeleteUserById(Guid id);
+
+        List<User> GetUsersList();
     }
 }

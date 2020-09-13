@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Entities;
 
 namespace Data.Repositories.Abstract
@@ -12,5 +13,7 @@ namespace Data.Repositories.Abstract
         AwardEntity GetAwardById(Guid id);
 
         void DeleteAwardById(int id);
+
+        IEnumerable<AwardEntity> GetAllAwards();
     }
 }

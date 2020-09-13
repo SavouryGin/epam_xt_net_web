@@ -8,8 +8,10 @@ namespace Mappers
 {
     public static class AwardsMapper
     {
-        public static AwardEntity ToEntity(this Award award)
+        public static AwardEntity DomainToEntity(this Award award)
         {
+            if (award == null) return null;
+
             DateTime created = DateTime.Now;
 
             return new AwardEntity
@@ -20,7 +22,18 @@ namespace Mappers
             };
         }
 
-        public static Award ToDomain(this AwardModel award)
+        public static Award EntityToDomain(this AwardEntity award)
+        {
+            if (award == null) return null;
+
+            return new Award
+            {
+                Title = award.Title,
+                Id = award.Id
+            };
+        }
+
+        public static Award ModelToDomain(this AwardModel award)
         {
             if (award == null) return null;
 
@@ -32,14 +45,13 @@ namespace Mappers
             };
         }
 
-        public static AwardModel ToModel(this Award award)
+        public static AwardModel DomainToModel(this Award award)
         {
             if (award == null) return null;
 
             return new AwardModel
             {
-                Title = award.Title,
-                UsersAwarded = award.UsersAwarded.Select(x => x.ToModel()).ToList()
+                Title = award.Title
             };
         }
     }

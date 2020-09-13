@@ -21,7 +21,14 @@ namespace API.Controllers
 
         public void CreateNewAward(AwardModel model)
         {
-            _awardsService.CreateNewAward(model.ToDomain());
+            _awardsService.CreateNewAward(model.ModelToDomain());
+        }
+
+        public AwardModel FindAwardByTitle(string title)
+        {
+            var award = _awardsService.GetAwardsList().FirstOrDefault(n => n.Title == title);
+            if (award == null) return null;
+            return award.DomainToModel();
         }
     }
 }

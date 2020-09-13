@@ -32,7 +32,7 @@ namespace Task_7_1_1_Users_and_Awards
             //c1.CreateNewUser(user2);
 
             AwardModel award1 = new AwardModel();
-            award1.Title = "First Plase";
+            award1.Title = "Gold";
             award1.UsersAwarded = new List<UserModel> { user1 };
 
             AwardsController a1 = new AwardsController();
@@ -42,6 +42,33 @@ namespace Task_7_1_1_Users_and_Awards
             string fname = Console.ReadLine();
             Console.WriteLine("Enter your last Name: ");
             string lname = Console.ReadLine();
+            
+           var fuser = c1.FindUserByName(fname, lname);
+            if (fuser == null)
+            {
+                Console.WriteLine("There is no such user in the repository. ");
+            }
+            else
+            {
+                Console.WriteLine(fuser);
+            }
+
+            Console.WriteLine("Enter award title: ");
+            string title = Console.ReadLine();
+
+            var faward = a1.FindAwardByTitle(title);
+            if (faward == null)
+            {
+                Console.WriteLine("There is no such award in the repository. ");
+            }
+            else
+            {
+                Console.WriteLine(faward);
+            }
+
+
+            Console.ReadLine();
+
 
 
         }
