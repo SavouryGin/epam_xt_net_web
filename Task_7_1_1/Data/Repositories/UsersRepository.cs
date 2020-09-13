@@ -12,23 +12,24 @@ namespace Data.Repositories
     public class UsersRepository : IUsersRepository
     {
         // A thread-safe collection of users in a single copy
-        // public static List<UserEntity> _list = new List<UserEntity>();
+        //public static List<UserEntity> _list = new List<UserEntity>();
 
-        public const string LocalDataPath = "Data\\";
-        public static string DataPath => Environment.CurrentDirectory + "\\" + LocalDataPath;
+        //public UsersRepository()
+        //{
+        //    _list = GetAllUsers().ToList();
+        //}
 
-        public void AddUser(UserEntity user)
+        // Path to local file storage
+        public static string DataPath => Environment.CurrentDirectory + "\\Data\\Users\\";
+
+        public void CreateNewUser(UserEntity user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
             var userName = "User_" + user.Id + ".json";
 
-            Console.WriteLine(userName);
-
             var userStr = JsonConvert.SerializeObject(user);
-
-            Console.WriteLine(userStr);
 
             using (var writer = new StreamWriter(DataPath + userName))
                 writer.Write(userStr);
@@ -53,7 +54,7 @@ namespace Data.Repositories
 
         public IEnumerable<UserEntity> GetAllUsers()
         {
-            var directory = new DirectoryInfo(Environment.CurrentDirectory + "\\" + LocalDataPath);
+            var directory = new DirectoryInfo(DataPath);
 
             foreach (var file in directory.GetFiles())
                 using (var reader = new StreamReader(file.FullName))

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 namespace Services
 {
-    // Декоратор для логирования событий в сервисе
     public class UsersServiceCashDecorator : IUsersService
     {
         private readonly IUsersService _usersService;
@@ -17,10 +16,10 @@ namespace Services
             _usersService = usersService;
         }
 
-        public void AddUser(User user)
+        public void CreateNewUser(User user)
         {
             // логирование
-            _usersService.AddUser(user);
+            _usersService.CreateNewUser(user);
         }
 
         public void DeleteUserById(Guid id)

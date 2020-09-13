@@ -10,7 +10,5 @@ namespace Entities
         public int Age { get; set; }
 
         public DateTime DateOfBirth { get; set; }
-
-        //public List<AwardEntity> UserAwards { get; set; }
     }
 }

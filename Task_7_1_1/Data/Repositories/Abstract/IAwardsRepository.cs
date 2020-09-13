@@ -3,9 +3,9 @@ using Entities;
 
 namespace Data.Repositories.Abstract
 {
-    public interface IAwardRepository
+    public interface IAwardsRepository
     {
-        void AddAward(AwardEntity award);
+        void CreateNewAward(AwardEntity award);
 
         void UpdateAward(AwardEntity award);
 

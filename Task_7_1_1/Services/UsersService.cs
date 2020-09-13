@@ -4,6 +4,8 @@ using Domain;
 using Services.Abstract;
 using System;
 using Mappers;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Services
 {
@@ -12,14 +14,21 @@ namespace Services
         // Dependency injection
         private readonly IUsersRepository _usersRepository;
 
+        private static List<User> _listOfUsers = new List<User>();
+
         public UsersService()
         {
             _usersRepository = new UsersRepository();
+
+            foreach (var user in _usersRepository.GetAllUsers())
+            {
+                _listOfUsers.Add(user.EntityToDomain());
+            }
         }
 
-        public void AddUser(User user)
+        public void CreateNewUser(User user)
         {
-            _usersRepository.AddUser(user.ToEntity());
+            _usersRepository.CreateNewUser(user.ToEntity());
         }
 
         public void DeleteUserById(Guid id)
@@ -29,11 +38,17 @@ namespace Services
 
         public User GetUserById(Guid id)
         {
-            throw new NotImplementedException();
+            return _listOfUsers.FirstOrDefault(n => n.Id == id);
         }
 
         public void UpdateUser(User user)
         {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> GetUsersList()
+        {
+
             throw new NotImplementedException();
         }
     }

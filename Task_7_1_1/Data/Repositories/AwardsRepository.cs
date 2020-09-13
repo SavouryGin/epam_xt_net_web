@@ -8,10 +8,10 @@ using System.Linq;
 
 namespace Data.Repositories
 {
-    class AwardRepository : IAwardRepository
+    public class AwardsRepository : IAwardsRepository
     {
         public static string DataPath => Environment.CurrentDirectory + "\\Data\\Awards\\";
-        public void AddAward(AwardEntity award)
+        public void CreateNewAward(AwardEntity award)
         {
             if (award == null)
                 throw new ArgumentNullException(nameof(award));

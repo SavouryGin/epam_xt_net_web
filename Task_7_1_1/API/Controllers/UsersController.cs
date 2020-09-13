@@ -5,7 +5,6 @@ using Services.Abstract;
 
 namespace API.Controllers
 {
-    // Фасад
     public class UsersController
     {
         private readonly IUsersService _usersService;
@@ -15,10 +14,17 @@ namespace API.Controllers
             _usersService = new UsersService();
         }
 
-        public void AddUser(UserModel model)
+        public void CreateNewUser(UserModel model)
         {
-            _usersService.AddUser(model.ToDomain());
+            _usersService.CreateNewUser(model.ModelToDomain());
         }
+
+        //public UserModel FindUser(string fname, string lname)
+        //{
+        //    string name = string.Format("{0}|{1}", fname, lname);
+        //    _usersService.GetUserById()
+
+        //}
 
 
     }

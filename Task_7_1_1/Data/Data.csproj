@@ -45,9 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Abstract\IAwardRepository.cs" />
+    <Compile Include="Repositories\Abstract\IAwardsRepository.cs" />
     <Compile Include="Repositories\Abstract\IUsersRepository.cs" />
-    <Compile Include="Repositories\AwardRepository.cs" />
+    <Compile Include="Repositories\AwardsRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,17 +1,22 @@
 ﻿using Domain;
 using Entities;
 using Models;
+using System;
 using System.Linq;
 
 namespace Mappers
 {
-    public static class AwardMapper
+    public static class AwardsMapper
     {
         public static AwardEntity ToEntity(this Award award)
         {
+            DateTime created = DateTime.Now;
+
             return new AwardEntity
             {
-                Title = award.Title
+                Title = award.Title,
+                DateOfCreation = created,
+                Id = award.Id
             };
         }
 
@@ -22,7 +27,8 @@ namespace Mappers
             return new Award
             {
                 Title = award.Title,
-                UsersAwarded = award.UsersAwarded.Select(x => x.ToDomain()).ToList()
+                UsersAwarded = award.UsersAwarded.Select(x => x.ModelToDomain()).ToList(),
+                Id = Guid.NewGuid()
             };
         }
 

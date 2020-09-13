@@ -5,7 +5,7 @@ namespace Services.Abstract
 {
     public interface IUsersService
     {
-        void AddUser(User user);
+        void CreateNewUser(User user);
 
         void UpdateUser(User user);
 
