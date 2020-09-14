@@ -2,9 +2,6 @@
 using Models;
 using Services;
 using Services.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace API.Controllers
 {

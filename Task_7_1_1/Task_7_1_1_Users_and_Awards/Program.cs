@@ -1,7 +1,6 @@
 ﻿using API.Controllers;
 using Models;
 using System;
-using System.Collections.Generic;
 
 namespace Task_7_1_1_Users_and_Awards
 {
