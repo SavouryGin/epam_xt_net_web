@@ -16,32 +16,38 @@ namespace Data.Repositories
 
         public void CreateNewUser(UserEntity user)
         {
-            if (user == null)
-                throw new ArgumentNullException(nameof(user));
+            var fileName = "User_" + user.Id + ".json";
+            var userData = JsonConvert.SerializeObject(user);
 
-            var userName = "User_" + user.Id + ".json";
-
-            var userStr = JsonConvert.SerializeObject(user);
-
-            using (var writer = new StreamWriter(DataPath + userName))
-                writer.Write(userStr);
+            using (var writer = new StreamWriter(DataPath + fileName))
+                writer.Write(userData);
         }
 
         public void DeleteUserById(Guid id)
         {
-            // TODO: реализовать метод DeleteUserById
-            throw new NotImplementedException();
+            var fileName = "User_" + id + ".json";
+            var pathToFile = DataPath + fileName;
+            File.Delete(pathToFile);
         }
 
         public UserEntity GetUserById(Guid id)
         {
-            return GetAllUsers().FirstOrDefault(n => n.Id == id);
+            return GetAllUsers().FirstOrDefault(x => x.Id == id);
         }
 
         public void UpdateUser(UserEntity user)
         {
-            // TODO: реализовать метод UpdateUser
-            throw new NotImplementedException();
+            var oldUser = GetUserById(user.Id);
+
+            if (oldUser == null)
+            {
+                CreateNewUser(user);
+            } 
+            else
+            {
+                DeleteUserById(oldUser.Id);
+                CreateNewUser(user);
+            }
         }
 
         public IEnumerable<UserEntity> GetAllUsers()

@@ -6,7 +6,11 @@ namespace Services.Abstract
 {
     public interface IUsersService
     {
-        void CreateNewUser(User user);
+        void SaveUserToRepository(User user);
+
+        void SaveAllChanges();
+
+        void AddUser(User user);
 
         void UpdateUser(User user);
 
@@ -14,6 +18,8 @@ namespace Services.Abstract
 
         void DeleteUserById(Guid id);
 
-        List<User> GetUsersList();
+        void AddAwardToUser(Guid awardId, Guid userId);
+
+        void RemoveAwardFromUser(Guid awardId, Guid userId);
     }
 }

@@ -9,14 +9,16 @@ namespace Services.Abstract
 {
     public interface IAwardsService
     {
-        void CreateNewAward(Award award);
+        void SaveAllChanges();
+
+        void SaveAwardToRepository(Award award);
+
+        void AddAward(Award award);
 
         void UpdateAward(Award award);
 
         Award GetAwardById(Guid id);
 
         void DeleteAwardById(Guid id);
-
-        List<Award> GetAwardsList();
     }
 }

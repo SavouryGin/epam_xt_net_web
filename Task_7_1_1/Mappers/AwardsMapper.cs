@@ -2,6 +2,7 @@
 using Entities;
 using Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Mappers
@@ -16,9 +17,10 @@ namespace Mappers
 
             return new AwardEntity
             {
+                Id = award.Id,
                 Title = award.Title,
-                DateOfCreation = created,
-                Id = award.Id
+                UsersAwarded = award.UsersAwarded,
+                DateOfCreation = created
             };
         }
 
@@ -28,8 +30,9 @@ namespace Mappers
 
             return new Award
             {
+                Id = award.Id,
                 Title = award.Title,
-                Id = award.Id
+                UsersAwarded = award.UsersAwarded
             };
         }
 
@@ -39,9 +42,9 @@ namespace Mappers
 
             return new Award
             {
+                Id = award.Id,
                 Title = award.Title,
-                UsersAwarded = award.UsersAwarded.Select(x => x.ModelToDomain()).ToList(),
-                Id = Guid.NewGuid()
+                UsersAwarded = new List<Guid>()
             };
         }
 
@@ -51,6 +54,7 @@ namespace Mappers
 
             return new AwardModel
             {
+                Id = award.Id,
                 Title = award.Title
             };
         }

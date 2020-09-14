@@ -12,7 +12,7 @@ namespace Data.Repositories.Abstract
 
         AwardEntity GetAwardById(Guid id);
 
-        void DeleteAwardById(int id);
+        void DeleteAwardById(Guid id);
 
         IEnumerable<AwardEntity> GetAllAwards();
     }

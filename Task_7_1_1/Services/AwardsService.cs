@@ -24,15 +24,36 @@ namespace Services
                 _listOfAwards.Add(award.EntityToDomain());
             }
         }
-        public void CreateNewAward(Award award)
+        public void SaveAwardToRepository(Award award)
         {
             _awardsRepository.CreateNewAward(award.DomainToEntity());
         }
 
+        public void SaveAllChanges()
+        {
+            foreach (var award in _listOfAwards)
+            {
+                SaveAwardToRepository(award);
+            }
+        }
+
+        public void AddAward(Award award)
+        {
+            if (_listOfAwards.Contains(award))
+            {
+                UpdateAward(award);
+            }
+            else
+            {
+                _listOfAwards.Add(award);
+            }
+        }
+
         public void DeleteAwardById(Guid id)
         {
-            // TODO: DeleteAwardById
-            throw new NotImplementedException();
+            var award = GetAwardById(id);
+            _listOfAwards.Remove(award);
+            _awardsRepository.DeleteAwardById(id);
         }
 
         public Award GetAwardById(Guid id)
@@ -40,15 +61,10 @@ namespace Services
             return _listOfAwards.FirstOrDefault(n => n.Id == id);
         }
 
-        public List<Award> GetAwardsList()
-        {
-            return _listOfAwards;
-        }
-
         public void UpdateAward(Award award)
         {
-            // TODO: UpdateAward
-            throw new NotImplementedException();
+            DeleteAwardById(award.Id);
+            _listOfAwards.Add(award);
         }
     }
 }

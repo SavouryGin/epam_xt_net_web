@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Domain;
 using Entities;
@@ -8,7 +9,7 @@ namespace Mappers
 {
     public static class UsersMapper
     {
-        public static UserEntity ToEntity(this User user)
+        public static UserEntity DomainToEntity(this User user)
         {
             if (user == null) return null;
 
@@ -16,10 +17,11 @@ namespace Mappers
 
             return new UserEntity
             {
-                Age = user.Age,
-                Name = user.Name,
-                DateOfBirth = user.DateOfBirth,
                 Id = user.Id,
+                Name = user.Name,
+                Age = user.Age,
+                DateOfBirth = user.DateOfBirth,
+                Awards = user.Awards.Select(x => x.DomainToEntity()).ToList(),
                 DateOfCreation = created
             };
         }
@@ -28,13 +30,17 @@ namespace Mappers
         {
             if (user == null) return null;
 
+            DateTime now = DateTime.Today;
+            int age = now.Year - user.DateOfBirth.Year;
+            if (user.DateOfBirth > now.AddYears(-age)) age--;
+
             return new User
             {
-                Name = string.Format("{0}|{1}", user.FirstName.Trim(), user.LastName.Trim()),
-                Age = user.Age,
+                Id = user.Id,
+                Name = user.Name,
+                Age = age,
                 DateOfBirth = user.DateOfBirth,
-                Id = Guid.NewGuid(),
-                Awards = user.Awards.Select(x => x.ModelToDomain()).ToList()
+                Awards = new List<Award>()
             };
         }
 
@@ -44,10 +50,11 @@ namespace Mappers
 
             return new User
             {
+                Id = user.Id,
                 Name = user.Name,
                 Age = user.Age,
                 DateOfBirth = user.DateOfBirth,
-                Id = user.Id
+                Awards = user.Awards.Select(x => x.EntityToDomain()).ToList()
             };
         }
 
@@ -57,9 +64,8 @@ namespace Mappers
 
             return new UserModel
             {
-                FirstName = user.Name.Split('|')[0],
-                LastName = user.Name.Split('|')[1],
-                Age = user.Age,
+                Id = user.Id,
+                Name = user.Name,
                 DateOfBirth = user.DateOfBirth
             };
         }

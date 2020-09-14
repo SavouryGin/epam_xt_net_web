@@ -25,10 +25,11 @@ namespace Data.Repositories
                 writer.Write(awardStr);
         }
 
-        public void DeleteAwardById(int id)
+        public void DeleteAwardById(Guid id)
         {
-            // TODO: DeleteAwardById
-            throw new NotImplementedException();
+            var fileName = "Award_" + id + ".json";
+            var pathToFile = DataPath + fileName;
+            File.Delete(pathToFile);
         }
 
         public IEnumerable<AwardEntity> GetAllAwards()
@@ -42,8 +43,17 @@ namespace Data.Repositories
 
         public void UpdateAward(AwardEntity award)
         {
-            // TODO: UpdateAward
-            throw new NotImplementedException();
+            var oldAward = GetAwardById(award.Id);
+
+            if (oldAward == null)
+            {
+                CreateNewAward(award);
+            }
+            else
+            {
+                DeleteAwardById(oldAward.Id);
+                CreateNewAward(award);
+            }
         }
 
         public AwardEntity GetAwardById(Guid id)

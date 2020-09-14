@@ -25,15 +25,36 @@ namespace Services
             }
         }
 
-        public void CreateNewUser(User user)
+        public void SaveUserToRepository(User user)
         {
-            _usersRepository.CreateNewUser(user.ToEntity());
+            _usersRepository.CreateNewUser(user.DomainToEntity());
         }
+
+        public void SaveAllChanges()
+        {
+            foreach (var user in _listOfUsers)
+            {
+                SaveUserToRepository(user);
+            }
+        }
+
+        public void AddUser(User user)
+        {
+            if (_listOfUsers.Contains(user))
+            {
+                UpdateUser(user);
+            } else
+            {
+                _listOfUsers.Add(user);
+            }           
+        }
+
 
         public void DeleteUserById(Guid id)
         {
-            // TODO: DeleteUserById
-            throw new NotImplementedException();
+            var user = GetUserById(id);
+            _listOfUsers.Remove(user);
+            _usersRepository.DeleteUserById(id);
         }
 
         public User GetUserById(Guid id)
@@ -43,13 +64,37 @@ namespace Services
 
         public void UpdateUser(User user)
         {
-            // TODO: UpdateUser
-            throw new NotImplementedException();
+            DeleteUserById(user.Id);
+            _listOfUsers.Add(user);
+            
         }
 
         public List<User> GetUsersList()
         {
             return _listOfUsers;
+        }
+
+        public void AddAwardToUser(Guid awardId, Guid userId)
+        {
+            var user = GetUserById(userId);
+            var _newAwardsService = new AwardsService();
+            var award = _newAwardsService.GetAwardById(awardId);
+            user.Awards.Add(award);
+            award.UsersAwarded.Add(user.Id);
+            UpdateUser(user);
+            _newAwardsService.UpdateAward(award);
+
+        }
+
+        public void RemoveAwardFromUser(Guid awardId, Guid userId)
+        {
+            var user = GetUserById(userId);
+            var _newAwardsService = new AwardsService();
+            var award = _newAwardsService.GetAwardById(awardId);
+            user.Awards.Add(award);
+            award.UsersAwarded.Remove(user.Id);
+            UpdateUser(user);
+            _newAwardsService.UpdateAward(award);
         }
     }
 }
