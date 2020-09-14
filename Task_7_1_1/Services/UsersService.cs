@@ -79,7 +79,7 @@ namespace Services
             var user = GetUserById(userId);
             var _newAwardsService = new AwardsService();
             var award = _newAwardsService.GetAwardById(awardId);
-            user.Awards.Add(award);
+            user.Awards.Add(award.Id);
             award.UsersAwarded.Add(user.Id);
             UpdateUser(user);
             _newAwardsService.UpdateAward(award);
@@ -91,7 +91,7 @@ namespace Services
             var user = GetUserById(userId);
             var _newAwardsService = new AwardsService();
             var award = _newAwardsService.GetAwardById(awardId);
-            user.Awards.Add(award);
+            user.Awards.Add(award.Id);
             award.UsersAwarded.Remove(user.Id);
             UpdateUser(user);
             _newAwardsService.UpdateAward(award);

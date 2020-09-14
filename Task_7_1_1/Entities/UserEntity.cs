@@ -12,6 +12,6 @@ namespace Entities
 
         public DateTime DateOfBirth { get; set; }
 
-        public List<AwardEntity> Awards { get; set; }
+        public List<Guid> Awards { get; set; }
     }
 }

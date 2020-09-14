@@ -40,53 +40,11 @@ namespace Task_7_1_1_Users_and_Awards
             controller.AddNewAward(award1);
             controller.AddNewAward(award2);
 
-            // // Update services
-            // UsersController c2 = new UsersController();
-            // AwardsController a2 = new AwardsController();
-
-            // Add awards to the users
             controller.AddAwardToUser(award1, user1);
             controller.AddAwardToUser(award2, user1);
             controller.AddAwardToUser(award2, user2);
 
             controller.SaveAllChanges();
-
-
-
-            // // Display information about stored entities
-            // c2.DisplayAllUsers();
-            // a2.DisplayAllAwards();
-
-            // // Find user by name
-            // Console.WriteLine("Enter your first Name: ");
-            // string fname = Console.ReadLine();
-            // Console.WriteLine("Enter your last Name: ");
-            // string lname = Console.ReadLine();
-
-            //var fuser = c2.FindUserByName(fname, lname);
-            // if (fuser == null)
-            // {
-            //     Console.WriteLine("There is no such user in the repository. ");
-            // }
-            // else
-            // {
-            //     Console.WriteLine(fuser);
-            // }
-
-            // // Find user by title
-            // Console.WriteLine("Enter award title: ");
-            // string title = Console.ReadLine();
-
-            // var faward = a2.FindAwardByTitle(title);
-            // if (faward == null)
-            // {
-            //     Console.WriteLine("There is no such award in the repository. ");
-            // }
-            // else
-            // {
-            //     Console.WriteLine(faward);
-            // }
-
 
             Console.ReadLine();
         }

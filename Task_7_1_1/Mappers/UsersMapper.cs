@@ -21,7 +21,7 @@ namespace Mappers
                 Name = user.Name,
                 Age = user.Age,
                 DateOfBirth = user.DateOfBirth,
-                Awards = user.Awards.Select(x => x.DomainToEntity()).ToList(),
+                Awards = user.Awards,
                 DateOfCreation = created
             };
         }
@@ -40,7 +40,7 @@ namespace Mappers
                 Name = user.Name,
                 Age = age,
                 DateOfBirth = user.DateOfBirth,
-                Awards = new List<Award>()
+                Awards = new List<Guid>()
             };
         }
 
@@ -54,7 +54,7 @@ namespace Mappers
                 Name = user.Name,
                 Age = user.Age,
                 DateOfBirth = user.DateOfBirth,
-                Awards = user.Awards.Select(x => x.EntityToDomain()).ToList()
+                Awards = user.Awards
             };
         }
 

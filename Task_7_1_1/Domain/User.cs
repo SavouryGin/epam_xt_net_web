@@ -12,7 +12,7 @@ namespace Domain
 
         public DateTime DateOfBirth { get; set; }
 
-        public List<Award> Awards { get; set; }
+        public List<Guid> Awards { get; set; }
         
     }
 }
