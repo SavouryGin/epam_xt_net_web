@@ -66,5 +66,10 @@ namespace Services
             DeleteAwardById(award.Id);
             _listOfAwards.Add(award);
         }
+
+        public List<Award> GetAwardsList()
+        {
+            return _listOfAwards;
+        }
     }
 }

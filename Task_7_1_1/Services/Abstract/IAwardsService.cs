@@ -1,5 +1,6 @@
 ﻿using Domain;
 using System;
+using System.Collections.Generic;
 
 namespace Services.Abstract
 {
@@ -16,5 +17,7 @@ namespace Services.Abstract
         Award GetAwardById(Guid id);
 
         void DeleteAwardById(Guid id);
+
+        List<Award> GetAwardsList();
     }
 }

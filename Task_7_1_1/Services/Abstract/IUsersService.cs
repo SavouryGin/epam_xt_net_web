@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Domain;
 
 namespace Services.Abstract
@@ -20,5 +21,7 @@ namespace Services.Abstract
         void AddAwardToUser(Guid awardId, Guid userId);
 
         void RemoveAwardFromUser(Guid awardId, Guid userId);
+
+        List<User> GetUsersList();
     }
 }
