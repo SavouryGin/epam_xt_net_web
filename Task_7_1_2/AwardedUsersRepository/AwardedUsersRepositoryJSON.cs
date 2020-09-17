@@ -7,9 +7,9 @@ using Entities;
 using System.IO;
 using System.Threading;
 
-namespace AwardedUsersRepository
+namespace DAL.Memory
 {
-    class AwardedUsersRepositoryJSON : IAwardedUsersRepository
+    public class AwardedUsersRepositoryJSON : IAwardedUsersRepository
     {
         // Creating a repository
         public static string WorkingDirectory = Environment.CurrentDirectory + "\\" + "Data\\";
