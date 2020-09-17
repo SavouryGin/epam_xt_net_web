@@ -8,11 +8,11 @@ namespace Common.Entities
 
         public DateTime DateOfCreation { get; set; }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        public int Age { get; private set; }
+        public int Age { get; set; }
 
-        public DateTime DateOfBirth { get; private set; }
+        public DateTime DateOfBirth { get; set; }
 
         public string Avatar { get; set; }
 

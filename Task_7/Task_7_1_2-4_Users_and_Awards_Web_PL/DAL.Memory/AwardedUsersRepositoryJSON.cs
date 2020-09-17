@@ -11,11 +11,11 @@ namespace DAL.Memory
 {
     public class AwardedUsersRepositoryJSON : IAwardedUsersRepository
     {
-        // Creating a repository
-        public static string WorkingDirectory = Environment.CurrentDirectory + "\\" + "Data\\";
-        public const string UsersRepo = "Users.json";
-        public const string AwardsRepo = "Awards.json";
-        public const string NexusesRepo = "Nexuses.json";
+        // NB: Change path to local storage if necessary
+        public static string WorkingDirectory = "D:\\code\\temp\\data\\";
+        public const string UsersRepo = "Users.txt";
+        public const string AwardsRepo = "Awards.txt";
+        public const string NexusesRepo = "Nexuses.txt";
 
         public AwardedUsersRepositoryJSON()
         {

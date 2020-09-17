@@ -7,6 +7,6 @@ namespace Common.BL.DR
     {
         private static IAwardedUsersLogic _logic;
 
-        public static IAwardedUsersLogic UserAwardsBLL => _logic ?? (_logic = new AwardedUsersLogic());
+        public static IAwardedUsersLogic AwardedUsersBLL => _logic ?? (_logic = new AwardedUsersLogic());
     }
 }

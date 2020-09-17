@@ -1,0 +1,31 @@
+﻿@using PL.Web.AwardedUsersAPI
+@using Common.Entities
+@{
+    Layout = "~/_Layout.cshtml";
+
+    // Testing area
+    var controller = new AwardedUsersAPI();
+
+    User user1 = new User("Dmitriy", new DateTime(1989, 04, 07));
+    User user2 = new User("Anna", new DateTime(1993, 12, 05));
+
+    Award award1 = new Award("Gold");
+    Award award2 = new Award("Silver");
+
+    controller.AddUser(user1);
+    controller.AddUser(user2);
+    controller.AddAward(award1);
+    controller.AddAward(award2);
+
+    controller.AddAwardToUser(user1.Id, award1.Id);
+    controller.AddAwardToUser(user2.Id, award2.Id);
+
+    controller.UpdateUserById(user1.Id, user1);
+    controller.UpdateUserById(user2.Id, user2);
+
+}
+
+<div>
+    <p>User1: @user1.Name; age: @user1.Age</p>
+    <p>User2: @user2.Name; age: @user2.Age</p>
+</div>

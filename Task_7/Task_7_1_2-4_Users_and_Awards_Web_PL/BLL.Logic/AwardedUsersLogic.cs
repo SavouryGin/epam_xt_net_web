@@ -10,23 +10,23 @@ namespace BLL.Logic
 {
     public class AwardedUsersLogic : IAwardedUsersLogic
     {
-        private readonly IAwardedUsersRepository Repo = RepositoryDR.AwardedUsersMemory;
+        private readonly IAwardedUsersRepository _repo = RepositoryDR.AwardedUsersMemory;
 
-        public void AddUser(User user) => Repo.SaveUser(user);
+        public void AddUser(User user) => _repo.SaveUser(user);
 
-        public void AddAward(Award award) => Repo.SaveAward(award);
+        public void AddAward(Award award) => _repo.SaveAward(award);
 
-        public User GetUserById(Guid id) => Repo.GetUserById(id);
+        public User GetUserById(Guid id) => _repo.GetUserById(id);
 
-        public Award GetAwardById(Guid id) => Repo.GetAwardById(id);
+        public Award GetAwardById(Guid id) => _repo.GetAwardById(id);
 
-        public IEnumerable<Award> GetAllAwards() => Repo.GetAllAwards();
+        public IEnumerable<Award> GetAllAwards() => _repo.GetAllAwards();
 
-        public IEnumerable<User> GetAllUsers() => Repo.GetAllUsers();
+        public IEnumerable<User> GetAllUsers() => _repo.GetAllUsers();
 
-        public IEnumerable<User> GetAwardedUsers(Guid awardId) => Repo.GetAwardedUsers(awardId);
+        public IEnumerable<User> GetAwardedUsers(Guid awardId) => _repo.GetAwardedUsers(awardId);
 
-        public IEnumerable<Award> GetUserAwards(Guid userId) => Repo.GetUserAwards(userId);
+        public IEnumerable<Award> GetUserAwards(Guid userId) => _repo.GetUserAwards(userId);
 
         public bool UpdateUserById(Guid id, User user)
         {
@@ -36,7 +36,7 @@ namespace BLL.Logic
                 return false;
 
             user.Id = id;
-            Repo.UpdateUser(user);
+            _repo.UpdateUser(user);
 
             return true;
         }
@@ -49,32 +49,32 @@ namespace BLL.Logic
                 return false;
 
             award.Id = id;
-            Repo.UpdateAward(award);
+            _repo.UpdateAward(award);
 
             return true;
         }
 
         public void DeleteUserById(Guid id)
         {
-            var nexusId = Repo.GetAllNexuses().Where(link => link.UserId == id).Select(link => link.Id);
+            var nexusId = _repo.GetAllNexuses().Where(link => link.UserId == id).Select(link => link.Id);
 
-            Repo.DeleteNexusById(nexusId);
-            Repo.DeleteUserById(id);
+            _repo.DeleteNexusById(nexusId);
+            _repo.DeleteUserById(id);
         }
 
         public void DeleteAwardById(Guid id)
         {
-            var nexusId = Repo.GetAllNexuses().Where(nexus => nexus.AwardId == id).Select(nexus => nexus.Id);
+            var nexusId = _repo.GetAllNexuses().Where(nexus => nexus.AwardId == id).Select(nexus => nexus.Id);
 
-            Repo.DeleteNexusById(nexusId);
-            Repo.DeleteAwardById(id);
+            _repo.DeleteNexusById(nexusId);
+            _repo.DeleteAwardById(id);
         }
 
         public bool AddAwardToUser(Guid userId, Guid awardId)
         {
             var users = GetAllUsers();
             var awards = GetAllAwards();
-            var nexuses = Repo.GetAllNexuses();
+            var nexuses = _repo.GetAllNexuses();
 
             if (!users.Where(user => user.Id == userId).Any())
                 return false;
@@ -86,19 +86,19 @@ namespace BLL.Logic
                 return false;
 
             var newNexus = new Nexus(userId, awardId);
-            Repo.SaveNexus(newNexus);
+            _repo.SaveNexus(newNexus);
 
             return true;
         }
 
         public void RemoveAwardFromUser(Guid userId, Guid awardId)
         {
-            var nexuses = Repo.GetAllNexuses();
+            var nexuses = _repo.GetAllNexuses();
 
             var linkToDelete = nexuses.Where(nexus => nexus.UserId == userId && nexus.AwardId == awardId);
 
             if (linkToDelete != null)
-                Repo.DeleteNexusById(linkToDelete.FirstOrDefault().Id);
+                _repo.DeleteNexusById(linkToDelete.FirstOrDefault().Id);
         }
     }
 }
