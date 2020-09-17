@@ -4,25 +4,15 @@ using System.Collections.Generic;
 
 namespace PL.Contracts
 {
-    public interface IAwardedUsersAPI
+    public interface IUsersAPI
     {
         void AddUser(User user);
 
-        void AddAward(Award award);
-
         User GetUserById(Guid id);
-
-        Award GetAwardById(Guid id);
 
         void UpdateUserById(Guid id, User user);
 
-        void UpdateAwardById(Guid id, Award award);
-
-        void DeleteUserById(Guid id);       
-
-        void DeleteAwardById(Guid id);
-
-        IEnumerable<User> GetAwardedUsers(Guid awardId);
+        void DeleteUserById(Guid id);
 
         IEnumerable<Award> GetUserAwards(Guid userId);
 
@@ -31,7 +21,5 @@ namespace PL.Contracts
         void RemoveAwardFromUser(Guid userId, Guid awardId);
 
         IEnumerable<User> GetAllUsers();
-
-        IEnumerable<Award> GetAllAwards();        
     }
 }

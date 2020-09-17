@@ -44,8 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AwardedUsersRepositoryJSON.cs" />
+    <Compile Include="AwardsRepository.cs" />
+    <Compile Include="CommonMethods.cs" />
+    <Compile Include="NexusesRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common.Entities\Common.Entities.csproj">

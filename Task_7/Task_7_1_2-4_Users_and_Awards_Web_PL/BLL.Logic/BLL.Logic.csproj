@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AwardedUsersLogic.cs" />
+    <Compile Include="AwardsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL.Contracts\BLL.Contracts.csproj">

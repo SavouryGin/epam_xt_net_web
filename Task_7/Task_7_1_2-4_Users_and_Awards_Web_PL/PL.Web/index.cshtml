@@ -1,10 +1,10 @@
-﻿@using PL.Web.AwardedUsersAPI
+﻿@using PL.Web.API
 @using Common.Entities
 @{
     Layout = "~/_basicLayout.cshtml";
 
-    // Testing area
-    var controller = new AwardedUsersAPI();
+    var userContr = new UsersAPI();
+    var awardContr = new AwardsAPI();
 
     User user1 = new User("Dmitriy", new DateTime(1989, 04, 07));
     User user2 = new User("Anna", new DateTime(1993, 12, 05));
@@ -12,20 +12,21 @@
     Award award1 = new Award("Gold");
     Award award2 = new Award("Silver");
 
-    controller.AddUser(user1);
-    controller.AddUser(user2);
-    controller.AddAward(award1);
-    controller.AddAward(award2);
+    userContr.AddUser(user1);
+    userContr.AddUser(user2);
+    awardContr.AddAward(award1);
+    awardContr.AddAward(award2);
 
-    controller.AddAwardToUser(user1.Id, award1.Id);
-    controller.AddAwardToUser(user2.Id, award2.Id);
+    userContr.AddAwardToUser(user1.Id, award1.Id);
+    userContr.AddAwardToUser(user2.Id, award2.Id);
 
-    controller.UpdateUserById(user1.Id, user1);
-    controller.UpdateUserById(user2.Id, user2);
+    userContr.UpdateUserById(user1.Id, user1);
+    userContr.UpdateUserById(user2.Id, user2);
+
 
 }
 
-<div>
-    <p>User1: @user1.Name; age: @user1.Age</p>
-    <p>User2: @user2.Name; age: @user2.Age</p>
-</div>
+    <div>
+        <p>User 1: @user1.Name; @user1.Age years old </p>
+        <p>User 2: @user2.Name; @user2.Age years old </p>
+    </div>
