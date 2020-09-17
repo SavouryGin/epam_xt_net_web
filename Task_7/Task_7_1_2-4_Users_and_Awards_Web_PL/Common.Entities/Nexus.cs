@@ -2,12 +2,8 @@
 
 namespace Common.Entities
 {
-    public class Nexus : IBaseEntity
+    public class Nexus : BaseEntity
     {
-        public Guid Id { get; set; }
-
-        public DateTime DateOfCreation { get; set; }
-
         public Guid UserId { get; private set; }
 
         public Guid AwardId { get; private set; }

@@ -2,12 +2,10 @@
 
 namespace Common.Entities
 {
-    public class Award : IBaseEntity
+    public class Award : BaseEntity
     {
-        public Guid Id { get; set; }
-
-        public DateTime DateOfCreation { get; set; }
         public string Title { get; private set; }
+
         public string Avatar { get; set; }
 
         private Award()

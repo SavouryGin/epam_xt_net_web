@@ -2,12 +2,8 @@
 
 namespace Common.Entities
 {
-    public class User : IBaseEntity
+    public class User : BaseEntity
     {
-        public Guid Id { get; set; }
-
-        public DateTime DateOfCreation { get; set; }
-
         public string Name { get; set; }
 
         public int Age { get; set; }
