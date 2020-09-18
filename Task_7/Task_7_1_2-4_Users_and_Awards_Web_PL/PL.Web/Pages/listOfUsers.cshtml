@@ -1,0 +1,26 @@
+﻿@using PL.Web.API
+@{
+    var usersAPI = new UsersAPI();
+    var list = usersAPI.GetAllUsers();
+    string avatar;
+}
+
+@foreach (var user in list)
+{
+    if (user.Avatar == null)
+    {
+        avatar = "/Icons/user.png";
+    } 
+    else
+    {
+        avatar = user.Avatar;
+    }
+
+    <text>
+        <div class="item border-primary" id="@user.Id">
+            <div class="deleteItem"><button class="btn-sm btn-danger" data-toggle="modal" data-target="#confirm-delete">&times;</button></div>
+            <div class="itemImage"><img class="avatar" src="@avatar" /></div>
+            <div class="itemName alert-primary">@user.Name</div>
+        </div>
+    </text>
+}

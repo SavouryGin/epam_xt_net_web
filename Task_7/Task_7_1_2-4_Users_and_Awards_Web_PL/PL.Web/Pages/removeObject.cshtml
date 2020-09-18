@@ -1,0 +1,16 @@
+﻿@using PL.Web.API
+
+@{ 
+    var usersPL = new UsersAPI();
+    var awardsPL = new AwardsAPI();
+
+    var type = Request["Type"];
+
+    Guid id;
+    Guid.TryParse(Request["Id"], out id);
+
+    if (type == "user")
+    { usersPL.DeleteUserById(id); }
+    else
+    { awardsPL.DeleteAwardById(id); } 
+}

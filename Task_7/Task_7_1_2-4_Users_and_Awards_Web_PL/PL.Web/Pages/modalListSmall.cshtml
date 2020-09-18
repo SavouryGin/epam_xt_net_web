@@ -1,0 +1,68 @@
+﻿@using PL.Web.API
+@using Common.Entities
+@using System.Linq
+@{ 
+    var usersPL = new UsersAPI();
+    var awardsPL = new AwardsAPI();
+
+    var type = Request["Type"];
+
+    Guid id;
+    Guid.TryParse(Request["Id"], out id);
+
+    if (id == Guid.Empty)
+    {
+        Response.Write("Incorret data");
+        return;
+    }
+
+    dynamic items;
+
+    if (type == "user")
+    {
+        items = awardsPL.GetAllAwards();
+    }
+    else
+    {
+        items = usersPL.GetAllUsers();
+    }
+
+    string name;
+    string avatar; 
+}
+
+@foreach (var item in items)
+{
+    if (type == "user")
+    {
+        avatar = "/Icons/favorite.png";
+        name = (item as Award).Title;
+        var existingLinkedItems = usersPL.GetUserAwards(id);
+
+        if (existingLinkedItems.Where(elem => elem.Id == item.Id).Any())
+        {
+            continue;
+        }
+    }
+    else
+    {
+        avatar = "/Icons/user.png";
+        name = (item as User).Name;
+        var existingLinkedItems = awardsPL.GetAwardedUsers(id);
+        if (existingLinkedItems.Where(elem => elem.Id == item.Id).Any())
+        {
+            continue;
+        }
+    }
+
+    if (item.Avatar != null)
+    {
+        avatar = item.Avatar;
+    }
+
+<text>
+    <div class="item-to-pick border-primary" id="@item.Id">
+        <div class="item-to-pick-image-wrapper"><img src="@avatar"></div>
+        <div class="alert-primary item-to-pick-text">@name</div>
+    </div>
+</text>}

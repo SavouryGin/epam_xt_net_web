@@ -1,0 +1,25 @@
+﻿@using PL.Web.API
+@{
+    var awardsAPI = new AwardsAPI();
+    var list = awardsAPI.GetAllAwards();
+    string avatar;
+}
+
+@foreach (var award in list)
+{
+    if (award.Avatar == null)
+    {
+        avatar = "/Icons/favorite.png";
+    }
+    else
+    {
+        avatar = award.Avatar;
+    }
+    <text>
+        <div class="item border-primary" id="@award.Id">
+            <div class="deleteItem"><button class="btn-sm btn-danger">&times;</button></div>
+            <div class="itemImage"><img class="avatar" src="@avatar" /></div>
+            <div class="itemName alert-primary">@award.Title</div>
+        </div>
+    </text>
+}

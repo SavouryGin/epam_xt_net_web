@@ -101,6 +101,20 @@
   <ItemGroup>
     <Content Include="index.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Pages\listOfUsers.cshtml" />
+    <Content Include="Pages\_addBtn.cshtml" />
+    <Content Include="Pages\listOfAwards.cshtml" />
+    <Content Include="Pages\_editWindow.cshtml" />
+    <Content Include="Pages\_confirmWindow.cshtml" />
+    <Content Include="Pages\_addWindow.cshtml" />
+    <Content Include="Pages\addNexus.cshtml" />
+    <Content Include="Pages\removeNexus.cshtml" />
+    <Content Include="Pages\showAward.cshtml" />
+    <Content Include="Pages\showUser.cshtml" />
+    <Content Include="Pages\removeObject.cshtml" />
+    <Content Include="Pages\addObject.cshtml" />
+    <Content Include="Pages\modalListLarge.cshtml" />
+    <Content Include="Pages\modalListSmall.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -128,7 +142,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\" />
+    <Folder Include="CSS\" />
+    <Folder Include="Icons\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,86 @@
+﻿@using PL.Web.API
+@using Common.Entities
+@using System.Text.RegularExpressions
+@{ 
+    var usersPL = new UsersAPI();
+    var awardsPL = new AwardsAPI();
+
+    string type = Request["Type"];
+
+    Guid id;
+    Guid.TryParse(Request["Id"], out id);
+
+    string name = Request["Name"];
+
+    string avatar = Request["Image"];
+    if (avatar.Length == 0)
+    {
+        avatar = null;
+    }
+
+    if (type == "user")
+    {
+        string nameCheck = @"[a-zA-Z0-9_\-]{3,}";
+
+        var dateArr = Request["DateOfBirth"].Split('-');
+        if (dateArr.Length != 3)
+        {
+            Response.Write("Incorect date of birth");
+            return;
+        }
+
+        int year, mount, day;
+        int.TryParse(dateArr[0], out year);
+        int.TryParse(dateArr[1], out mount);
+        int.TryParse(dateArr[2], out day);
+
+        var birthDay = new DateTime(year, mount, day);
+
+
+        if (!Regex.IsMatch(name, nameCheck))
+        {
+            Response.Write("Incorrect name");
+        }
+        else
+        {
+            var users = usersPL.GetAllUsers();
+            if (users.Where(usr => usr.Name == name && usr.Id != id).Any())
+            {
+                Response.Write("A user with the same name already exists.");
+                return;
+            }
+            var user = new User(name, birthDay, avatar);
+            if (id != Guid.Empty)
+            {
+                usersPL.UpdateUserById(id, user);
+            }
+            else
+            {
+                usersPL.AddUser(user);
+            }
+        }
+    }
+    else
+    {
+        string nameCheck = @"[a-zA-Zа-яА-ЯёЁ0-9_\-\s]{3,}";
+
+        if (!Regex.IsMatch(name, nameCheck))
+        {
+            Response.Write("Incorrect title");
+        }
+        else
+        {
+            var awards = awardsPL.GetAllAwards();
+            if (awards.Where(awrd => awrd.Title == name && awrd.Id != id).Any())
+            {
+                Response.Write("Award title must be unique");
+                return;
+            }
+            var award = new Award(name, avatar);
+            if (id != Guid.Empty)
+            { awardsPL.UpdateAwardById(id, award); }
+            else
+            { awardsPL.AddAward(award); }
+        }
+    }
+}

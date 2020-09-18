@@ -1,32 +1,40 @@
 ﻿@using PL.Web.API
-@using Common.Entities
 @{
     Layout = "~/_basicLayout.cshtml";
-
-    var userContr = new UsersAPI();
-    var awardContr = new AwardsAPI();
-
-    User user1 = new User("Dmitriy", new DateTime(1989, 04, 07));
-    User user2 = new User("Anna", new DateTime(1993, 12, 05));
-
-    Award award1 = new Award("Gold");
-    Award award2 = new Award("Silver");
-
-    userContr.AddUser(user1);
-    userContr.AddUser(user2);
-    awardContr.AddAward(award1);
-    awardContr.AddAward(award2);
-
-    userContr.AddAwardToUser(user1.Id, award1.Id);
-    userContr.AddAwardToUser(user2.Id, award2.Id);
-
-    userContr.UpdateUserById(user1.Id, user1);
-    userContr.UpdateUserById(user2.Id, user2);
-
-
 }
 
-    <div>
-        <p>User 1: @user1.Name; @user1.Age years old </p>
-        <p>User 2: @user2.Name; @user2.Age years old </p>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-8 text-center mainGroups">
+        <h1>Users</h1>
+        <div class="col-12" id="usersList">
+            <div id="users">
+                @RenderPage("~/Pages/listOfUsers.cshtml")
+            </div>
+            <div>
+                @RenderPage("~/Pages/_addBtn.cshtml")
+            </div>
+        </div>
     </div>
+    <div class="col"></div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-8 text-center mainGroups">
+        <h1>Awards</h1>
+        <div class="col-12" id="awardsList">
+            <div id="awards">
+                @RenderPage("~/Pages/listOfAwards.cshtml")
+            </div>
+            <div>
+                @RenderPage("~/Pages/_addBtn.cshtml")
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+
+@RenderPage("~/Pages/_editWindow.cshtml")
+@RenderPage("~/Pages/_confirmWindow.cshtml")
+@RenderPage("~/Pages/_addWindow.cshtml")

@@ -1,0 +1,15 @@
+﻿@using PL.Web.API
+@using Newtonsoft.Json
+
+@{ 
+    Layout = null;
+
+    var awardsPL = new AwardsAPI();
+    Guid guid;
+    Guid.TryParse(Request["id"], out guid);
+    var award = awardsPL.GetAwardById(guid);
+
+    var json = JsonConvert.SerializeObject(award);
+
+    Response.Write(json); 
+}
