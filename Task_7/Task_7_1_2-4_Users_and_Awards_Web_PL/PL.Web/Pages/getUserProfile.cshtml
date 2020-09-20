@@ -1,14 +1,13 @@
 ﻿@using PL.Web.API
 @using Newtonsoft.Json
 @using Newtonsoft.Json.Converters
-
 @{ 
     Layout = null;
 
-    var usersPL = new UsersAPI();
+    var userAPI = new UsersAPI();
     Guid guid;
     Guid.TryParse(Request["id"], out guid);
-    var user = usersPL.GetUserById(guid);
+    var user = userAPI.GetUserById(guid);
 
     var json = JsonConvert.SerializeObject(user, new IsoDateTimeConverter() { DateTimeFormat = "yyyy-MM-dd" });
 

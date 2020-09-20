@@ -1,6 +1,6 @@
 ﻿@using PL.Web.API
 @{ 
-    var usersPL = new UsersAPI();
+    var userAPI = new UsersAPI();
 
     Guid userId, awardId;
 
@@ -9,9 +9,9 @@
 
     if (userId == Guid.Empty && awardId == Guid.Empty)
     {
-        Response.Write("Error on removing nexus");
+        Response.Write("Something went wrong");
         return;
     }
 
-    usersPL.RemoveAwardFromUser(userId, awardId); 
+    userAPI.RemoveAwardFromUser(userId, awardId);
 }

@@ -2,8 +2,8 @@
 @using Common.Entities
 @using System.Linq
 @{ 
-    var usersPL = new UsersAPI();
-    var awardsPL = new AwardsAPI();
+    var userAPI = new UsersAPI();
+    var awardAPI = new AwardsAPI();
 
     var type = Request["Type"];
 
@@ -12,57 +12,57 @@
 
     if (id == Guid.Empty)
     {
-        Response.Write("Incorret data");
+        Response.Write("Incorrect Input");
         return;
     }
 
-    dynamic items;
+    dynamic objects;
 
     if (type == "user")
     {
-        items = awardsPL.GetAllAwards();
+        objects = awardAPI.GetAllAwards();
     }
     else
     {
-        items = usersPL.GetAllUsers();
+        objects = userAPI.GetAllUsers();
     }
 
     string name;
-    string avatar; 
+    string image;
 }
 
-@foreach (var item in items)
+@foreach (var obj in objects)
 {
     if (type == "user")
     {
-        avatar = "/Icons/favorite.png";
-        name = (item as Award).Title;
-        var existingLinkedItems = usersPL.GetUserAwards(id);
-
-        if (existingLinkedItems.Where(elem => elem.Id == item.Id).Any())
+        image = "/Icons/medal.png";
+        name = (obj as Award).Title;
+        var existingLinkedItems = userAPI.GetUserAwards(id);
+        if (existingLinkedItems.Where(elem => elem.Id == obj.Id).Any())
         {
             continue;
         }
     }
     else
     {
-        avatar = "/Icons/user.png";
-        name = (item as User).Name;
-        var existingLinkedItems = awardsPL.GetAwardedUsers(id);
-        if (existingLinkedItems.Where(elem => elem.Id == item.Id).Any())
+        image = "/Icons/user.png";
+        name = (obj as User).Name;
+        var existingLinkedItems = awardAPI.GetAwardedUsers(id);
+        if (existingLinkedItems.Where(elem => elem.Id == obj.Id).Any())
         {
             continue;
         }
     }
 
-    if (item.Avatar != null)
+    if (obj.Avatar != null)
     {
-        avatar = item.Avatar;
+        image = obj.Avatar;
     }
 
-<text>
-    <div class="item-to-pick border-primary" id="@item.Id">
-        <div class="item-to-pick-image-wrapper"><img src="@avatar"></div>
-        <div class="alert-primary item-to-pick-text">@name</div>
-    </div>
-</text>}
+    <text>
+        <div class="item-to-pick border-primary" id="@obj.Id">
+            <div class="item-to-pick-image-wrapper"><img src="@image"></div>
+            <div class="alert-primary item-to-pick-text">@name</div>
+        </div>
+    </text>
+}

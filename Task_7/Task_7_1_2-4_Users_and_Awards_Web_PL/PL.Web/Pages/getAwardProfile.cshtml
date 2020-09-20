@@ -1,13 +1,13 @@
 ﻿@using PL.Web.API
 @using Newtonsoft.Json
-
+@using Newtonsoft.Json.Converters
 @{ 
     Layout = null;
 
-    var awardsPL = new AwardsAPI();
+    var awardAPI = new AwardsAPI();
     Guid guid;
     Guid.TryParse(Request["id"], out guid);
-    var award = awardsPL.GetAwardById(guid);
+    var award = awardAPI.GetAwardById(guid);
 
     var json = JsonConvert.SerializeObject(award);
 

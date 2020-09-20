@@ -1,0 +1,56 @@
+﻿@using PL.Web.API
+@using Common.Entities
+@{ 
+    var userAPI = new UsersAPI();
+    var awardAPI = new AwardsAPI();
+
+    var type = Request["Type"];
+
+    dynamic objects;
+
+    Guid id;
+    Guid.TryParse(Request["Id"], out id);
+
+    if (id == Guid.Empty)
+    {
+        return;
+    }
+
+    if (type == "user")
+    {
+        objects = userAPI.GetUserAwards(id);
+    }
+    else
+    {
+        objects = awardAPI.GetAwardedUsers(id);
+    }
+
+    string name;
+    string ava;
+}
+
+@foreach (var obj in objects)
+{
+    if (type == "user")
+    {
+        ava = "/Icons/medal.png";
+        name = (obj as Award).Title;
+    }
+    else
+    {
+        ava = "/Icons/user.png";
+        name = (obj as User).Name;
+    }
+
+    if (obj.Avatar != null)
+    {
+        ava = obj.Avatar;
+    }
+
+    <text>
+        <div class="modal_list_item" id="@obj.Id">
+            <div class="modal_list_image" title="@name"><img class="modal_list_avatar" src="@ava" /></div>
+            <div class="modal_list_delete">&times;</div>
+        </div>
+    </text>
+}

@@ -3,9 +3,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modal_title"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <div class="modal-body" id="modal-body">
                 <input type="hidden" id="modal_itemType">
@@ -15,7 +12,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="modal_div_image"><img id="modal_user_image" /></div>
-                            <div><label for="modal_file" class="change_img btn btn-info">Change avatar</label></div>
+                            <div class="change_btn"><label for="modal_file" class="change_img btn btn-info">Change</label></div>
                         </div>
                         <div class="col-6">
                             <div class="input-group mb-3 modal_div_name">
@@ -26,6 +23,10 @@
                                 <div class="text-dark">Birthday</div>
                                 <input type="date" id="modal_birthday">
                             </div>
+                            <div id="modal_div_age">
+                                <div class="text-dark">Age</div>
+                                <input type="number" id="modal_age">
+                            </div>
                         </div>
                     </div>
                     <div class="row text-dark">User awards</div>
@@ -34,7 +35,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="modal_div_image"><img id="modal_award_image" /></div>
-                            <div><label for="modal_file" class="change_img btn btn-info">Change icon</label></div>
+                            <div class="change_btn"><label for="modal_file" class="change_img btn btn-info">Change</label></div>
                         </div>
                         <div class="col-6">
                             <div class="input-group mb-3 modal_div_name">
@@ -50,7 +51,7 @@
                     </div>
                     <div class="modal_user_award_list">
                         <div class="modal_list_plus modal_list_image">
-                            <img class="avatar" src="~/Icons/add.png" />
+                            <img class="avatar" src="~/Icons/edit.png"/>
                         </div>
                     </div>
                 </div>

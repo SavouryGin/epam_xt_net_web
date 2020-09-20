@@ -1,24 +1,24 @@
 ﻿@using PL.Web.API
-@{
-    var awardsAPI = new AwardsAPI();
-    var list = awardsAPI.GetAllAwards();
-    string avatar;
+@{ 
+    var awardAPI = new AwardsAPI();
+    var awards = awardAPI.GetAllAwards();
+    string ava;
 }
 
-@foreach (var award in list)
+@foreach (var award in awards)
 {
     if (award.Avatar == null)
     {
-        avatar = "/Icons/favorite.png";
+        ava = "/Icons/medal.png";
     }
     else
     {
-        avatar = award.Avatar;
+        ava = award.Avatar;
     }
     <text>
         <div class="item border-primary" id="@award.Id">
             <div class="deleteItem"><button class="btn-sm btn-danger">&times;</button></div>
-            <div class="itemImage"><img class="avatar" src="@avatar" /></div>
+            <div class="itemImage"><img class="avatar" src="@ava" /></div>
             <div class="itemName alert-primary">@award.Title</div>
         </div>
     </text>
