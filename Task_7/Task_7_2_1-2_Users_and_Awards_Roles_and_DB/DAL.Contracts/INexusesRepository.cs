@@ -11,10 +11,6 @@ namespace DAL.Contracts
     {
         void SaveNexus(Nexus nexus);
 
-        Nexus GetNexusById(Guid id);
-
-        bool UpdateNexus(Nexus nexus);
-
         bool DeleteNexusById(Guid id);
 
         bool DeleteNexusById(IEnumerable<Guid> ids);
