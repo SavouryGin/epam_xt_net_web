@@ -41,7 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AwardsLogicDR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersLogicDR.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL.Contracts\BLL.Contracts.csproj">
+      <Project>{F4FA83DE-9491-4A98-AB61-45D14CBAD709}</Project>
+      <Name>BLL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL.Logic\BLL.Logic.csproj">
+      <Project>{40EF9BEC-23FB-4803-8309-9F96AD7462F7}</Project>
+      <Name>BLL.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -41,7 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AwardsRepoDR.cs" />
+    <Compile Include="NexusesRepoDR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersRepoDR.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL.Contracts\DAL.Contracts.csproj">
+      <Project>{693CD16E-8C6D-4F22-832A-8DA81DFE6BD5}</Project>
+      <Name>DAL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.Memory\DAL.Memory.csproj">
+      <Project>{0352C919-A5F9-45F4-90CC-AD6C94497CBB}</Project>
+      <Name>DAL.Memory</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
