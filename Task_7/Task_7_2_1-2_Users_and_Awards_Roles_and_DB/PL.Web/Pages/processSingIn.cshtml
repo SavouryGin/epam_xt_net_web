@@ -1,0 +1,37 @@
+﻿@using PL.Web.API
+@using Common.Entities
+@{ 
+    var usersAPI = new UsersAPI();
+
+    var name = Request["Login"];
+    var password = Request["Password"];
+    var bithDay = new DateTime(2000, 1, 1);
+    string avatar = null;
+    bool isAdmin;
+    bool.TryParse(Request["IsAdmin"], out isAdmin);
+
+    var user = new User(name, bithDay, avatar, isAdmin);
+
+    switch (usersAPI.AddUser(user))
+    {
+        case UserStatus.Exists:
+            var existedUser = usersAPI.GetUserByName(name);
+            if (existedUser.Password == null)
+            {
+                usersAPI.SetPassword(existedUser.Id, password);
+                Response.Write("The password has been created. You can log in with your password.");
+            }
+            else
+            {
+                Response.Write("A user with the same name already exists.");
+            }
+            return;
+        case UserStatus.Verified:
+            usersAPI.SetPassword(user.Id, password);
+            Response.Write("Registration completed successfully. Log in with your password.");
+            return;
+        default:
+            Response.Write("Invalid username. Make a username from English characters, no more than 25 characters.");
+            return;
+    }
+}

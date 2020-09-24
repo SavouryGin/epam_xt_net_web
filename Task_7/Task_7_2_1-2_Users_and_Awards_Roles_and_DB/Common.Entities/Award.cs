@@ -12,7 +12,6 @@ namespace Common.Entities
         private Award()
         {
             Id = Guid.NewGuid();
-            DateOfCreation = DateTime.Now;
         }
 
         public Award(string title, string ava = null) : this()

@@ -1,0 +1,69 @@
+﻿@using PL.Web.API
+@using Common.Entities
+@using System.Linq
+@{
+    Layout = "~/_authentication.cshtml";
+    var userAPI = new UsersAPI();
+    var awardAPI = new AwardsAPI();
+
+    var type = Request["Type"];
+
+    Guid id;
+    Guid.TryParse(Request["Id"], out id);
+
+    if (id == Guid.Empty)
+    {
+        Response.Write("Incorrect Input");
+        return;
+    }
+
+    dynamic objects;
+
+    if (type == "user")
+    {
+        objects = awardAPI.GetAllAwards();
+    }
+    else
+    {
+        objects = userAPI.GetAllUsers();
+    }
+
+    string name;
+    string ava;
+}
+
+@foreach (var obj in objects)
+{
+    if (type == "user")
+    {
+        ava = "/Icons/medal.png";
+        name = (obj as Award).Title;
+        var existingLinkedItems = userAPI.GetUserAwards(id);
+        if (existingLinkedItems.Where(elem => elem.Id == obj.Id).Any())
+        {
+            continue;
+        }
+    }
+    else
+    {
+        ava = "/Icons/user.png";
+        name = (obj as User).Name;
+        var existingLinkedItems = awardAPI.GetAwardedUsers(id);
+        if (existingLinkedItems.Where(elem => elem.Id == obj.Id).Any())
+        {
+            continue;
+        }
+    }
+
+    if (obj.Avatar != null)
+    {
+        ava = obj.Avatar;
+    }
+
+    <text>
+        <div class="item-to-pick border-primary" id="@obj.Id">
+            <div class="item-to-pick-image-wrapper"><img src="@ava"></div>
+            <div class="alert-primary item-to-pick-text">@name</div>
+        </div>
+    </text>
+}

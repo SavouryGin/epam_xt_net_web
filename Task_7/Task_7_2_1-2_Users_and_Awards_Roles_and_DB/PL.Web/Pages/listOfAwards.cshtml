@@ -1,0 +1,26 @@
+﻿@using PL.Web.API
+@{
+    Layout = "~/_authentication.cshtml";
+    var awardAPI = new AwardsAPI();
+    var awards = awardAPI.GetAllAwards();
+    string ava;
+}
+
+@foreach (var award in awards)
+{
+    if (award.Avatar == null)
+    {
+        ava = "/Icons/medal.png";
+    }
+    else
+    {
+        ava = award.Avatar;
+    }
+    <text>
+        <div class="item border-primary" id="@award.Id">
+            <div class="itemName">@award.Title</div>
+            <div class="itemImage"><img class="avatar" src="@ava" /></div>
+            <div class="deleteItem"><button class="btn-sm btn-danger"> &times; </button></div>
+        </div>
+    </text>
+}

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LogIn</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/CSS/style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/jquery.md5.js"></script>
+    <script src="~/Scripts/AppLogIn.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="header__container">
+            <h1 class="header__title">Users and Awards</h1>
+            <h2 class="header__subtitle">Perform a feat and get a reward!</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div class="form-group">
+                <label for="login">User Name</label>
+                <input type="text" class="form-control" id="login" placeholder="Enter your name...">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password...">
+                <input type="checkbox" class="form-check-input" id="is_admin">
+                <label class="form-check-label" for="is_admin">Assign as administrator?</label>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" id="loginButton">Log In</button>
+                <button class="btn btn-secondary" id="registrationButton">Sign In</button>
+                <div class="text-info" id="result"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

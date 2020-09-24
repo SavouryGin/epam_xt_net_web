@@ -1,0 +1,15 @@
+﻿@using PL.Web.API
+@using Newtonsoft.Json
+
+@{ 
+    Layout = "~/_authentication.cshtml";
+
+    var awardAPI = new AwardsAPI();
+    Guid guid;
+    Guid.TryParse(Request["id"], out guid);
+    var award = awardAPI.GetAwardById(guid);
+
+    var json = JsonConvert.SerializeObject(award);
+
+    Response.Write(json);
+}

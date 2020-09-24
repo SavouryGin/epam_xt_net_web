@@ -18,8 +18,7 @@ namespace DAL.Memory
             {
                 new KeyValuePair<string, object>("@Id", award.Id),
                 new KeyValuePair<string, object>("@Title", award.Title),
-                new KeyValuePair<string, object>("@Avatar", award.Avatar),
-                new KeyValuePair<string, object>("@DateOfCreation", award.DateOfCreation)
+                new KeyValuePair<string, object>("@Avatar", award.Avatar)
             };
 
             CommonMethods.GetSQLInstruction(_connectionString, procedure, param);
@@ -55,12 +54,10 @@ namespace DAL.Memory
                 Guid _id = (Guid)obj["Id"];
                 string title = obj["Title"].ToString();
                 string ava = obj["Avatar"].ToString() == "" ? null : obj["Avatar"].ToString();
-                DateTime date = (DateTime)obj["DateOfCreation"];
 
                 award = new Award(title, ava)
                 {
-                    Id = _id,
-                    DateOfCreation = date
+                    Id = _id
                 };
             }
 
@@ -90,12 +87,10 @@ namespace DAL.Memory
                 Guid id = (Guid)obj["Id"];
                 string title = obj["Title"].ToString();
                 string ava = obj["Avatar"].ToString() == "" ? null : obj["Avatar"].ToString();
-                DateTime date = (DateTime)obj["DateOfCreation"];
 
                 var award = new Award(title, ava)
                 {
-                    Id = id,
-                    DateOfCreation = date
+                    Id = id
                 };
 
                 awards.AddLast(award);
@@ -121,12 +116,10 @@ namespace DAL.Memory
                 Guid id = (Guid)obj["Id"];
                 string _title = obj["Title"].ToString();
                 string image = obj["Avatar"].ToString() == "" ? null : obj["Avatar"].ToString();
-                DateTime date = (DateTime)obj["DateOfCreation"];
 
                 award = new Award(_title, image)
                 {
-                    Id = id,
-                    DateOfCreation = date
+                    Id = id
                 };
             }
 
@@ -151,7 +144,6 @@ namespace DAL.Memory
                 string name = item["Name"].ToString();
                 string password = item["Password"].ToString();
                 DateTime birthDay = (DateTime)item["DateOfBirth"];
-                DateTime date = (DateTime)item["DateOfCreation"];
                 int age = (int)item["Age"];
                 bool isAdmin = (bool)item["IsAdmin"];
                 string ava = item["Avatar"].ToString() == "" ? null : item["Avatar"].ToString();
@@ -160,8 +152,7 @@ namespace DAL.Memory
                 {
                     Password = password,
                     Id = _id,
-                    Age = age,
-                    DateOfCreation = date
+                    Age = age
                 };
 
                 users.AddLast(user);

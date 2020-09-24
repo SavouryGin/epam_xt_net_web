@@ -23,8 +23,7 @@ namespace DAL.Memory
                 new KeyValuePair<string, object>("@DateOfBirth", user.DateOfBirth),
                 new KeyValuePair<string, object>("@Age", user.Age),
                 new KeyValuePair<string, object>("@IsAdmin", user.IsAdmin),
-                new KeyValuePair<string, object>("@Image", user.Avatar),
-                new KeyValuePair<string, object>("@DateOfCreation", user.DateOfCreation)
+                new KeyValuePair<string, object>("@Avatar", user.Avatar)
             };
 
             CommonMethods.GetSQLInstruction(_connectionString, procedure, param);
@@ -66,7 +65,6 @@ namespace DAL.Memory
                 string name = obj["Name"].ToString();
                 string password = obj["Password"].ToString();
                 DateTime birthDay = (DateTime)obj["DateOfBirth"];
-                DateTime date = (DateTime)obj["DateOfCreation"];
                 int age = (int)obj["Age"];
                 bool isAdmin = (bool)obj["IsAdmin"];
                 string ava = obj["Avatar"].ToString() == "" ? null : obj["Avatar"].ToString();
@@ -75,8 +73,7 @@ namespace DAL.Memory
                 {
                     Password = password,
                     Id = _id,
-                    Age = age,
-                    DateOfCreation = date
+                    Age = age
                 };
             }
 
@@ -107,7 +104,6 @@ namespace DAL.Memory
                 string name = obj["Name"].ToString();
                 string password = obj["Password"].ToString();
                 DateTime birthDay = (DateTime)obj["DateOfBirth"];
-                DateTime date = (DateTime)obj["DateOfCreation"];
                 int age = (int)obj["Age"];
                 bool isAdmin = (bool)obj["IsAdmin"];
                 string ava = obj["Avatar"].ToString() == "" ? null : obj["Avatar"].ToString();
@@ -116,8 +112,7 @@ namespace DAL.Memory
                 {
                     Password = password,
                     Id = id,
-                    Age = age,
-                    DateOfCreation = date
+                    Age = age
                 };
 
                 users.AddLast(user);
@@ -143,12 +138,10 @@ namespace DAL.Memory
                 Guid _id = (Guid)obj["Id"];
                 string title = obj["Title"].ToString();
                 string ava = obj["Avatar"].ToString() == "" ? null : obj["Avatar"].ToString();
-                DateTime date = (DateTime)obj["DateOfCreation"];
 
                 var award = new Award(title, ava)
                 {
-                    Id = _id,
-                    DateOfCreation = date
+                    Id = _id
                 };
 
                 awards.AddLast(award);
@@ -175,7 +168,6 @@ namespace DAL.Memory
                 string _name = obj["Name"].ToString();
                 string password = obj["Password"].ToString();
                 DateTime birthDay = (DateTime)obj["DateOfBirth"];
-                DateTime date = (DateTime)obj["DateOfCreation"];
                 int age = (int)obj["Age"];
                 bool isAdmin = (bool)obj["IsAdmin"];
                 string ava = obj["Avatar"].ToString() == "" ? null : obj["Avatar"].ToString();
@@ -184,8 +176,7 @@ namespace DAL.Memory
                 {
                     Password = password,
                     Id = id,
-                    Age = age,
-                    DateOfCreation = date
+                    Age = age
                 };
             }
 

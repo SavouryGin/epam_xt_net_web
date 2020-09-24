@@ -1,0 +1,28 @@
+﻿@using PL.Web.API
+@{
+    Layout = "~/_authentication.cshtml";
+    var userAPI = new UsersAPI();
+    var users = userAPI.GetAllUsers();
+
+    string ava;
+}
+
+@foreach (var user in users)
+{
+    if (user.Avatar == null)
+    {
+        ava = "/Icons/user.png";
+    }
+    else
+    {
+        ava = user.Avatar;
+    }
+    <text>
+        <div class="item" id="@user.Id">
+            <div class="itemName">@user.Name<br><span class="years">@user.Age years old</span></div>
+            <div class="itemImage"><img class="avatar" src="@ava" /></div>
+            <div class="deleteItem"><button class="btn-sm btn-danger" data-toggle="modal" data-target="#confirm-delete"> &times; </button></div>
+
+        </div>
+    </text>
+}

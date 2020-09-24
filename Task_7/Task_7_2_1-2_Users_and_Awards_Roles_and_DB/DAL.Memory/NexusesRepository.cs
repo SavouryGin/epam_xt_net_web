@@ -18,8 +18,7 @@ namespace DAL.Memory
             {
                 new KeyValuePair<string, object>("@Id", nexus.Id),
                 new KeyValuePair<string, object>("@UserId", nexus.UserId),
-                new KeyValuePair<string, object>("@AwardId", nexus.AwardId),
-                new KeyValuePair<string, object>("@DateOfCreation", nexus.DateOfCreation)
+                new KeyValuePair<string, object>("@AwardId", nexus.AwardId)
             };
 
             CommonMethods.GetSQLInstruction(_connectionString, procedure, param);
@@ -36,12 +35,10 @@ namespace DAL.Memory
                 Guid id = (Guid)obj["Id"];
                 Guid userId = (Guid)obj["UserId"];
                 Guid awardId = (Guid)obj["AwardId"];
-                DateTime date = (DateTime)obj["DateOfCreation"];
 
                 var nexus = new Nexus(userId, awardId)
                 {
-                    Id = id,
-                    DateOfCreation = date
+                    Id = id
                 };
 
                 nexuses.AddLast(nexus);

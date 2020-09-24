@@ -1,0 +1,15 @@
+﻿@using PL.Web.API
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Converters
+@{
+    Layout = "~/_authentication.cshtml";
+
+    var userAPI = new UsersAPI();
+    Guid guid;
+    Guid.TryParse(Request["id"], out guid);
+    var user = userAPI.GetUserById(guid);
+
+    var json = JsonConvert.SerializeObject(user, new IsoDateTimeConverter() { DateTimeFormat = "yyyy-MM-dd" });
+
+    Response.Write(json);
+}

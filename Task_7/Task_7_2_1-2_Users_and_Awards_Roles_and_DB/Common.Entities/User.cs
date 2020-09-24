@@ -22,7 +22,6 @@ namespace Common.Entities
         private User()
         {
             Id = Guid.NewGuid();
-            DateOfCreation = DateTime.Now;
         }
 
         public User(string name, DateTime date, string ava = null, bool isAdmin = false) : this()

@@ -1,0 +1,69 @@
+﻿<div class="modal fade" id="itemEditModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_title"></h5>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <input type="hidden" id="modal_itemType">
+                <input type="hidden" id="modal_itemId">
+                <input type="file" id="modal_file" class="modal_file" accept="image/png, image/jpeg" hidden />
+                <div id="modal_user_sect">
+                    <div class="row">
+                        <div class="col">
+                            <div class="modal_div_image"><img id="modal_user_image" /></div>
+                            <div class="change_btn"><label for="modal_file" class="change_img btn btn-info">Change</label></div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group mb-3 modal_div_name">
+                                <div class="text-dark">User name</div><br>
+                                <input type="text" id="modal_user_name" maxlength="20">
+                            </div>
+                            <div id="modal_div_birthday">
+                                <div class="text-dark">Birthday</div>
+                                <input type="date" id="modal_birthday">
+                            </div>
+                            <div id="modal_div_age">
+                                <div class="text-dark">Age</div>
+                                <input type="number" id="modal_age">
+                            </div>
+                            <div id="modal_div_pass">
+                                <div class="text-dark">Пароль</div>
+                                <input type="password" id="modal_pass" placeholder="Введите новый пароль">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-dark">User awards</div>
+                </div>
+                <div id="modal_award_sect">
+                    <div class="row">
+                        <div class="col">
+                            <div class="modal_div_image"><img id="modal_award_image" /></div>
+                            <div class="change_btn"><label for="modal_file" class="change_img btn btn-info">Change</label></div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group mb-3 modal_div_name">
+                                <div class="text-dark">Award title</div>
+                                <input type="text" id="modal_award_title" maxlength="20">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-dark">Awarded users</div>
+                </div>
+                <div class="modal_user_award_section">
+                    <div class="modal_user_award_list" id="modal_user_awards">
+                    </div>
+                    <div class="modal_user_award_list">
+                        <div class="modal_list_plus modal_list_image">
+                            <img class="avatar" src="~/Icons/edit.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="modal_save">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

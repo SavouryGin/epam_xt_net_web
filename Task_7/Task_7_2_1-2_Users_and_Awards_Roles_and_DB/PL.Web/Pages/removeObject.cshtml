@@ -1,0 +1,27 @@
+﻿@using PL.Web.API
+@{ 
+    Layout = "~/_authentication.cshtml";
+
+    if (!User.IsInRole("admin"))
+    {
+        Response.Write("You are not allowed to edit the lists of users and awards.");
+        return;
+    }
+
+    var userAPI = new UsersAPI();
+    var awardAPI = new AwardsAPI();
+
+    var type = Request["Type"];
+
+    Guid id;
+    Guid.TryParse(Request["Id"], out id);
+
+    if (type == "user")
+    {
+        userAPI.DeleteUserById(id);
+    }
+    else
+    {
+        awardAPI.DeleteAwardById(id);
+    }
+}
