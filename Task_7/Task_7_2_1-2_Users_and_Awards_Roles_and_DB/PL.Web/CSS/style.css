@@ -187,7 +187,7 @@ h3 {
     color: #7AC0FF;
 }
 
-.btn-primary, #confirm_delete_but {
+.btn-primary, #confirm_delete_but, #logoutButton {
     background-color: #F67600;
     color: #1E1E1E;
     border-radius: 0%;
@@ -214,7 +214,7 @@ h3 {
 }
 
 
-.change_img:hover, .btn-primary:hover, #confirm_delete_but:hover {
+.change_img:hover, .btn-primary:hover, #confirm_delete_but:hover, #logoutButton:hover {
     background-color: #A90000;
     color: #FFFFFF;
 }
@@ -236,7 +236,7 @@ h3 {
     font-size: 1.2rem;
 }
 
-#modal_user_name, #modal_birthday, #modal_age, #modal_award_title {
+#modal_user_name, #modal_birthday, #modal_age, #modal_award_title, #modal_pass {
     line-height: 2rem;
     text-indent: 6px;
     border: 1px solid #7AC0FF;
@@ -250,7 +250,7 @@ h3 {
     font-size: 1.6rem;
 }
 
-#modal_user_name:focus, #modal_birthday:focus, #modal_age:focus, #modal_award_title:focus {
+#modal_user_name:focus, #modal_birthday:focus, #modal_age:focus, #modal_award_title:focus, #modal_pass:focus {
     box-shadow: 0.2rem 0.2rem 0rem #F46E00;
 }
 
@@ -349,9 +349,9 @@ h3 {
     cursor: pointer;
 }
 
-    .modal_list_plus:hover {
-        box-shadow: 0.2rem 0.2rem 0rem #F46E00;
-    }
+.modal_list_plus:hover {
+    box-shadow: 0.2rem 0.2rem 0rem #F46E00;
+}
 
 #modal_list_item_to_add_body {
     float: left;
@@ -421,12 +421,35 @@ h3 {
 }
 
 .form-group {
-    border-radius: 0%;
     line-height: 2rem;
-    text-indent: 6px;
-    border: 1px solid #7AC0FF;
-    padding: 0.2rem;
-    background-color: #252526;
+    padding: 0.4rem;
     color: #F0F0F0 !important;
-    width: 100%;
+}
+
+#password, #login {
+    background-color: #1E1E1E;
+    color: #FFECAA;
+    border-radius: 0%;
+}
+
+#password:hover, #login:hover {
+    box-shadow: 0.2rem 0.2rem 0rem #F46E00;
+}
+
+.fixed-bottom {
+    font-size: 1.6rem;
+    margin: 1rem;
+}
+
+#logoutButton {
+    font-size: 1.6rem;
+}
+
+.form-check-input {
+    margin-left: 0rem;
+    margin-top: 0.5rem;
+}
+
+.form-check-label {
+    text-indent: 1.2rem;
 }

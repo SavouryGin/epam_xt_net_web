@@ -67,53 +67,51 @@ function editObject() {
 }
 
 function saveObject() {
-    let type = $('#modal_itemType').val();
-    let id = $('#modal_itemId').val();
-    let name;
-    let ava;
-
-    let data = {};
+    let type = $('#modal_itemType').val()
+    let id = $('#modal_itemId').val()
+    let data = {}
+    let name
+    let ava    
 
     if (type == "user") {
-        let birthday = $('#modal_birthday').val();
-        let password = $('#modal_pass').val();
+        let birthday = $('#modal_birthday').val()
+        let age = $('#modal_age').val()
+        let password = $('#modal_pass').val()
 
-        ava = $('#modal_user_image').attr('src');
-
-        if (ava == defaultUserImage)
-            ava = null;
-        name = $('#modal_user_name').val();
-
-        data.DateOfBirth = birthday;
-        data.Password = password;
-        data.Avatar = ava;
+        ava = $('#modal_user_image').attr('src')
+        if (ava == defaultUserImage) {
+            ava = null
+        }
+        name = $('#modal_user_name').val()
+        data.DateOfBirth = birthday
+        data.Age = age
+        data.Password = password
+        data.Image = ava
     }
     else {
-        ava = $('#modal_award_image').attr('src');
-        if (ava == defaultAwardImage)
+        ava = $('#modal_award_image').attr('src')
+        if (ava == defaultAwardImage) {
             ava = null;
-        name = $('#modal_award_title').val();
+        }
+        name = $('#modal_award_title').val()
     }
 
-    data.Type = type;
-    data.Id = id;
-    data.Name = name;
-    data.Avatar = ava;
+    data.Type = type
+    data.Id = id
+    data.Name = name
+    data.Avatar = ava
 
     $.post("/Pages/saveObject.cshtml",
         data,
         function (data) {
             if (data == "") {
                 $("#itemEditModal").modal('hide');
-                ShowMessage("Saved");
-                if (type == 'user')
-                    UpdateItemsList('user');
-                else
-                    UpdateItemsList('award');
+                displayNotificationMessage("Saved!")
+                type == 'user' ? updateInfo('user') : updateInfo('award')
             }
             else
-                displayNotificationMessage(data);
-        });
+                displayNotificationMessage(data)
+        })
 }
 
 function removeObject() {

@@ -19,10 +19,10 @@
         return;
     }
 
-    string image = Request["Avatar"];
-    if (image.Length == 0)
+    string ava = Request["Avatar"];
+    if (ava.Length == 0)
     {
-        image = null;
+        ava = null;
     }
 
     if (type == "user")
@@ -30,7 +30,7 @@
         var dateArr = Request["DateOfBirth"].Split('-');
         if (dateArr.Length != 3)
         {
-            Response.Write("Invalid date of birth.");
+            Response.Write("Invalid date of birth!");
             return;
         }
         int year, mount, day;
@@ -41,7 +41,7 @@
         var birthDay = new DateTime(year, mount, day);
         var password = Request["Password"];
 
-        var user = new User(name, birthDay, image, false);
+        var user = new User(name, birthDay, ava, false);
 
         if (password != "")
         {
@@ -51,10 +51,10 @@
         switch (userAPI.CheckUser(user))
         {
             case UserStatus.InvalidName:
-                Response.Write("Invalid name");
+                Response.Write("Invalid username!");
                 return;
             case UserStatus.InvalidDateOfBirth:
-                Response.Write("Invalid date of birth");
+                Response.Write("Invalid date of birth!");
                 return;
         }
 
@@ -66,7 +66,7 @@
         {
             if (userAPI.CheckUser(user) == UserStatus.Exists)
             {
-                Response.Write("A user with the same name already exists.");
+                Response.Write("A user with the same name already exists!");
                 return;
             }
             userAPI.AddUser(user);
@@ -74,11 +74,11 @@
     }
     else
     {
-        var award = new Award(name, image);
+        var award = new Award(name, ava);
         switch (awardAPI.CheckAward(award))
         {
             case AwardStatus.InvalidTitle:
-                Response.Write("Invalid award title");
+                Response.Write("Invalid Award title!");
                 return;
         }
 
@@ -90,7 +90,7 @@
         {
             if (awardAPI.CheckAward(award) == AwardStatus.Exists)
             {
-                Response.Write("An award with that title already exists.");
+                Response.Write("Award title must be unique!");
                 return;
             }
             awardAPI.AddAward(award);
