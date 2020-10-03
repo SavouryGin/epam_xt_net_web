@@ -87,17 +87,17 @@ Create a simplified version of google keep. To work with notes, use some of the 
 [My G-keep: Redone](https://github.com/SavouryGin/my_g-keep)
 
 ## Task 7.1. Three-Layer
-- [ ] 7.1.1. **Users and Awards.**
+- [x] 7.1.1. **Users and Awards.**
 Implement business logic that allows you to work with a list of users: create, delete, and get their list. Use a three-layer architecture as a template. Records must be saved to hard disk in any format, for example, JSON.
-- [ ] 7.1.2. **UI.**
+- [x] 7.1.2. **UI.**
 Add a visual interface based on ASP.NET Web Pages to the created business logic. The application should be able to perform all the same actions as the console version.
-- [ ] 7.1.3. **CRUD.**
+- [x] 7.1.3. **CRUD.**
 Extend the functionality of the application to CRUD-complete: create, read, update and delete the entities of the list.
-- [ ] 7.1.4. **Images.**
+- [x] 7.1.4. **Images.**
 Implement the ability to add images to users and awards, uploaded by the user himself.
 
 ## Task 7.2. Role-Playing Game
-- [ ] 7.2.1. **Roles.**
+- [x] 7.2.1. **Roles.**
 Add a role model to the application. Provide a login window and a new user registration form. The user can be anonymous, registered or administrator.
-- [ ] 7.2.2. **Database.**
+- [x] 7.2.2. **Database.**
 Implement a Microsoft SQL Server database to store application data. The database must be converted to third normal form.
