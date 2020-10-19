@@ -101,3 +101,6 @@ Implement the ability to add images to users and awards, uploaded by the user hi
 Add a role model to the application. Provide a login window and a new user registration form. The user can be anonymous, registered or administrator.
 - [x] 7.2.2. **Database.**
 Implement a Microsoft SQL Server database to store application data. The database must be converted to third normal form.
+
+## Final project 
+[Система построения структурных доказательств в натуральном исчислении высказываний](https://github.com/SavouryGin/epam_xt_final_project)
